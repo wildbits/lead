@@ -2,10 +2,10 @@
 <widget id="org.wilbits.lead" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Lead</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A dive weight planner which computes the amount of lead required for a dive depending on the diver body, set of gears and location of the dive.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="dev@wildbits.org" href="http://www.wildbits.org">
+        Wildbits Team
     </author>
     <icon src="res/icon.png" />
     <platform name="android">
