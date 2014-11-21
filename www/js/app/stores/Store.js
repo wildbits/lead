@@ -88,6 +88,15 @@ app.stores.Store = (function () {
             storage.remove(model.id);
             return JSON.parse(JSON.stringify(model.toJSON()));
         };
+
+        /**
+         * Empty the store by removing all models it may contain.
+         * @returns {*} empty attributes
+         */
+        this.empty = function() {
+            storage.empty();
+            return {};
+        }
     };
 
 }());

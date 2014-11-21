@@ -54,6 +54,10 @@ app.stores.MemoryStore = (function () {
 
                 remove: function (id) {
                     delete store[id];
+                },
+
+                empty: function () {
+                    store = {};
                 }
 
             }

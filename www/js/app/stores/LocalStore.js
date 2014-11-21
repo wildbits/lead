@@ -66,6 +66,10 @@ app.stores.LocalStore = (function () {
 
                 remove: function (id) {
                     data.removeItem(getKey(id));
+                },
+
+                empty: function () {
+                    data.clear();
                 }
 
             }

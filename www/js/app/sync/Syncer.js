@@ -53,6 +53,10 @@ app.sync.Syncer = (function () {
                     options.success(deleted);
                     return {};
 
+                case 'empty':
+                    store.empty();
+                    return {};
+
                 default:
                     throw ('Unsupported method: ' + method);
             }
@@ -84,6 +88,22 @@ app.sync.Syncer = (function () {
         getSync: function(modelType, syncType) {
             var modelSyncs = syncs[modelType] = syncs[modelType] || {};
             return modelSyncs[syncType] = modelSyncs[syncType] || new Sync(buildStore(modelType, syncType));
+        },
+
+        /**
+         * Empty all stores.
+         */
+        empty: function () {
+            for (var sync in syncs) {
+                if (syncs.hasOwnProperty(sync)) {
+                    var stores = syncs[sync];
+                    for (var store in stores) {
+                        if (stores.hasOwnProperty(store)) {
+                            stores[store].sync('empty');
+                        }
+                    }
+                }
+            }
         }
 
     };
