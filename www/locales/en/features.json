@@ -1,0 +1,31 @@
+{
+    "gender": "Gender",
+    "age": "Age",
+    "weight": "Weight",
+    "height": "Height",
+    "volume": "Volume",
+    "water": "Water",
+    "temperature": "Temperature",
+    "density": "Density",
+    "seawater": "Seawater (average)",
+    "specificSeawater": "Seawater (at location)",
+    "freshwater": "Fresh water",
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December",
+    "male": "Male",
+    "female": "Female",
+    "aluminium": "Aluminium",
+    "steel": "Steel"
+
+}
+
