@@ -15,22 +15,25 @@
  */
 app.models = app.models || {};
 
-app.models.Gear = Backbone.Model.extend({
+/**
+ * A generic dive gear
+ */
+app.models.Gear = app.models.Solid.extend({
 
     initialize: function() {
         this.syncer = app.sync.Syncer.getSync('app.model.Gear', 'mem');
     },
 
     defaults : {
-        category : undefined,
-        name     : undefined,
-        img      : undefined,
-        spec     : {},
-        features : {}
+        name    : undefined,     // the gear name
+        category: undefined,     // the gear category
+        img     : undefined,     // the path to the gear image
+        volume  : {unit: 'm^3'}, // the total gear volume in {@code m^3}
+        mass    : {unit: 'kg'}   // the total gear mass in {@code kg}
     },
 
-    sync: function(method, model, options) {
-        return this.syncer.sync(method, model, options);
+    validate: function (attrs) {
+        return this.validateDefined(attrs, ['name','category','img']);
     }
 
 });

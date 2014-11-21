@@ -15,6 +15,9 @@
  */
 app.collections = app.collections || {};
 
+/**
+ * A set of gears
+ */
 app.collections.Gears = Backbone.Collection.extend({
 
     initialize: function() {
