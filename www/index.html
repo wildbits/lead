@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
- Copyright wildbits org
+ Copyright 2014 wildbits org
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -20,16 +20,73 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/ratchet.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/ratchet-theme-android.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/app/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/leaflet/leaflet-0.7.3.css" />
         <meta name="msapplication-tap-highlight" content="no" />
+        <script type="text/javascript" src="js/vendor/jquery/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/vendor/underscore/underscore-1.7.0.min.js"></script>
+        <script type="text/javascript" src="js/vendor/backbone/backbone-1.1.2.min.js"></script>
+        <script type="text/javascript" src="js/vendor/ratchet/ratchet.min.js"></script>
+        <script type="text/javascript" src="js/vendor/hydro/hydro.js"></script>
+        <script type="text/javascript" src="js/vendor/leaflet/leaflet-0.7.3.js"></script>
+        <script type="text/javascript" src="js/vendor/x2js/xml2json.min.js"></script>
+        <script type="text/javascript" src="js/vendor/i18next/i18next-1.7.4.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/ratchet.min.js"></script>
-        <title>Lead</title>
+        <script type="text/javascript" src="js/app/App.js"></script>
+        <script type="text/javascript" src="js/app/platforms/Platform.js"></script>
+        <script type="text/javascript" src="js/app/routers/Router.js"></script>
+        <script type="text/javascript" src="js/app/sync/Syncer.js"></script>
+        <script type="text/javascript" src="js/app/units/Unit.js"></script>
+        <script type="text/javascript" src="js/app/ids/Ids.js"></script>
+        <script type="text/javascript" src="js/app/map/WmsFeatureInfo.js"></script>
+        <script type="text/javascript" src="js/app/models/BaseModel.js"></script>
+        <script type="text/javascript" src="js/app/models/Solid.js"></script>
+        <script type="text/javascript" src="js/app/sliders/Slider.js"></script>
+        <script type="text/javascript" src="js/app/models/GearFactory.js"></script>
+        <script type="text/javascript" src="js/app/models/Config.js"></script>
+        <script type="text/javascript" src="js/app/models/Feature.js"></script>
+        <script type="text/javascript" src="js/app/models/Option.js"></script>
+        <script type="text/javascript" src="js/app/models/Gear.js"></script>
+        <script type="text/javascript" src="js/app/models/Cylinder.js"></script>
+        <script type="text/javascript" src="js/app/models/Suit.js"></script>
+        <script type="text/javascript" src="js/app/models/Bcd.js"></script>
+        <script type="text/javascript" src="js/app/models/Diver.js"></script>
+        <script type="text/javascript" src="js/app/models/Plan.js"></script>
+        <script type="text/javascript" src="js/app/models/Environment.js"></script>
+        <script type="text/javascript" src="js/app/collections/Gears.js"></script>
+        <script type="text/javascript" src="js/app/collections/Plans.js"></script>
+        <script type="text/javascript" src="js/app/cache/Cache.js"></script>
+        <script type="text/javascript" src="js/app/views/BaseView.js"></script>
+        <script type="text/javascript" src="js/app/views/ModesView.js"></script>
+        <script type="text/javascript" src="js/app/views/FeatureView.js"></script>
+        <script type="text/javascript" src="js/app/views/LicenseView.js"></script>
+        <script type="text/javascript" src="js/app/views/BuoyancyView.js"></script>
+        <script type="text/javascript" src="js/app/views/BuoyancyResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/OptionView.js"></script>
+        <script type="text/javascript" src="js/app/views/GearLinkView.js"></script>
+        <script type="text/javascript" src="js/app/views/AbsoluteView.js"></script>
+        <script type="text/javascript" src="js/app/views/RelativeView.js"></script>
+        <script type="text/javascript" src="js/app/views/DiverView.js"></script>
+        <script type="text/javascript" src="js/app/views/GearsView.js"></script>
+        <script type="text/javascript" src="js/app/views/StoreView.js"></script>
+        <script type="text/javascript" src="js/app/views/ConfigView.js"></script>
+        <script type="text/javascript" src="js/app/views/StoreCategoryView.js"></script>
+        <script type="text/javascript" src="js/app/views/EnvironmentView.js"></script>
+        <script type="text/javascript" src="js/app/views/DiverLinkView.js"></script>
+        <script type="text/javascript" src="js/app/views/GearsLinkView.js"></script>
+        <script type="text/javascript" src="js/app/views/EnvironmentLinkView.js"></script>
+        <script type="text/javascript" src="js/app/views/AbsoluteResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/RelativeResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/EnvironmentResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/DiverResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/GearsSummaryResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/GearResultView.js"></script>
+        <script type="text/javascript" src="js/app/views/Map.js"></script>
+        <script type="text/javascript" src="js/app/stores/Store.js"></script>
+        <script type="text/javascript" src="js/app/stores/MemoryStore.js"></script>
+        <script type="text/javascript" src="js/app/stores/LocalStore.js"></script>
     </head>
     <body>
-
     </body>
 </html>
