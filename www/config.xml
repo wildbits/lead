@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.wilbits.lead" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.wilbits.lead" versionCode = "1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Lead</name>
     <description>
-        A dive weight planner which computes the amount of lead required for a dive depending on the diver body, set of gears and location of the dive.
+        A buoyancy planner for divers. It computes the amount of lead required for a dive depending on the diver body, set of gears and location of the dive.
     </description>
     <author email="dev@wildbits.org" href="http://www.wildbits.org">
         Wildbits Team
