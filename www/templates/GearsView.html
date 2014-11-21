@@ -1,0 +1,27 @@
+<header class="bar bar-nav" xmlns="http://www.w3.org/1999/html">
+    <a class="icon icon-left-nav pull-left"></a>
+    <h1 class="title">Gears selection</h1>
+</header>
+<div class="bar bar-standard bar-footer-secondary">
+    <button class="btn btn-positive btn-block add-gears">Add Gear</button>
+</div>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+    <div class="card">
+        <% if(gears.length == 0) { %>
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <p>
+                        The gear list is empty
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <% } else { %>
+            <ul class="table-view selected-gears-view"></ul>
+        <% } %>
+    </div>
+</div>

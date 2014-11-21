@@ -1,0 +1,29 @@
+<header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left"></a>
+    <h1 class="title">Absolute result</h1>
+</header>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="result content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-divider environment">
+                Water
+            </li>
+            <li class="table-view-divider diver">
+                Diver
+            </li>
+            <% if (json.gears.length > 0) { %>
+                <li class="table-view-divider gears">
+                    Gears
+                </li>
+                <li class="table-view-cell table-view-cell-no-padding">
+                    <div class="card">
+                        <ul class="table-view gears-details"></ul>
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</div>

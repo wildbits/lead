@@ -1,0 +1,30 @@
+<header class="bar bar-nav" xmlns="http://www.w3.org/1999/html">
+    <a class="icon icon-left-nav pull-left"></a>
+    <h1 class="title">Diver</h1>
+</header>
+<div class="bar bar-standard bar-footer-secondary">
+    <button class="btn btn-positive btn-block save-diver">Save</button>
+</div>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+    <div class="card">
+        <form class="diver-form">
+            <ul class="table-view">
+                <% if (json.required.gender) { %>
+                    <li class="table-view-divider diver-gender">Gender</li>
+                <% } %>
+                <% if (json.required.age) { %>
+                    <li class="table-view-divider diver-age">Age</li>
+                <% } %>
+                <% if (json.required.height) { %>
+                    <li class="table-view-divider diver-height">Height</li>
+                <% } %>
+                <% if (json.required.weight) { %>
+                    <li class="table-view-divider diver-weight">Weight</li>
+                <% } %>
+            </ul>
+        </form>
+    </div>
+</div>

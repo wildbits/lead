@@ -1,0 +1,15 @@
+<% var gearLink = (gears.length == 0) ? ('#plans/' + id + '/gears/store') : ('#plans/' + id + '/gears'); %>
+<a class="navigate-right" href="<%=gearLink%>">
+    <img class="media-object pull-left" src="img/gears.png"/>
+    <div class="media-body">
+        <h3>Gears</h3>
+        <p>
+            <% if (gears.length == 0) { %>
+                <span class="badge">Empty gear list</span>
+            <% } %>
+            <% _.each(gears, function (gear, index) { %>
+                <span class="badge badge-primary"><%=gear['name']%></span>
+            <% }); %>
+        </p>
+    </div>
+</a>

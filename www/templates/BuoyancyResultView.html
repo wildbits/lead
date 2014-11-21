@@ -1,0 +1,11 @@
+<% var uv = new app.units.Unit(json.buoyancy); %>
+<% var measure = uv.measure(); %>
+<span class="buoyancy"></span><br/>
+<span>
+    <% if (json.buoyancy.value > 0) { %>
+    The resulting buoyancy is positive.<br/>
+    You may <strong>add</strong> a minimum of <strong><%=uv.as(config.units[measure]).format(1)%></strong> of lead.
+<% } else { %>
+    The resulting buoyancy is negative.
+<% } %>
+</span>

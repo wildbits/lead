@@ -1,0 +1,29 @@
+<select name="<%=json.name%>" class="select-<%=json.name%>">
+
+    <% var value = (typeof json.data === 'object') ? json.data.value : json.data ; %>
+    <% value = (value) ? value : ((typeof json.default === 'object') ? json.default.value : json.default) ; %>
+
+    <% for (var i = 0 ; i < json.values.length ; i++) { %>
+
+        <% var optionValue = (typeof json.values[i] === 'object') ? json.values[i].value : json.values[i] ; %>
+        <% var optionUnit  = (typeof json.values[i] === 'object') ? json.values[i].unit  : undefined ; %>
+
+        <% var selected = (optionValue == value) ? 'selected' : ''; %>
+
+        <option value="<%=optionValue%>" <%=selected%>>
+
+            <% if (optionValue && optionUnit) { %>
+
+                <% var uv = new app.units.Unit(optionValue, optionUnit); %>
+                <% var measure = uv.measure(); %>
+                <% var precision = (json.precision) ? json.precision : 0; %>
+                <%= uv.as(config.units[measure]).format(json.precision) %>
+
+            <% } else { %>
+
+                <%= app.i18n('features:'+optionValue, optionValue) %>
+
+            <% } %>
+        </option>
+    <% } %>
+</select>

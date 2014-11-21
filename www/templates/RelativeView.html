@@ -1,0 +1,27 @@
+<% var disabled = ! new app.models.Environment(json.reference.environment).isValid() || ! new app.models.Environment(json.compared.environment).isValid() || json.reference.diver.weight == undefined; %><header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left"></a>
+    <h1 class="title">Relative method</h1>
+</header>
+<div class="bar bar-standard bar-footer-secondary">
+    <button <%= (disabled) ? 'disabled' : ''  %> class="btn btn-positive btn-block btn-compute">Compute</button>
+</div>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="diver table-view-divider">Diver</li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view">
+            <li class="reference table-view-divider">Reference dive</li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view">
+            <li class="planned table-view-divider">Planned dive</li>
+        </ul>
+    </div>
+</div>

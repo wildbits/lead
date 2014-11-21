@@ -1,0 +1,82 @@
+<header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left"></a>
+    <h1 class="title">Environment</h1>
+</header>
+<div class="bar bar-standard bar-footer-secondary">
+    <button class="btn btn-positive btn-block save-environment">Save</button>
+</div>
+<div class="bar bar-standard bar-footer">
+    <a href="#help" class="pull-left"><span class="icon icon-info"></span></a>
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+    <form class="data-form">
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-divider water-salinity">Water salinity</li>
+                <li class="table-view-divider water-temperature">Water surface temperature</li>
+            </ul>
+        </div>
+        <div class="card card-water-specific">
+            <ul class="table-view">
+                <li class="table-view-divider month-of-year">Month</li>
+                <li class="table-view-cell">
+                    &nbsp;
+                    <span class="output-message"></span>
+                </li>
+                <li class="table-view-cell">
+                    <span class="map-features">
+                        <span class="longitude"></span>
+                        <span class="latitude"></span>
+                        <span class="salinity"></span>
+                        &nbsp;
+                    </span>
+                    <a class="btn btn-positive btn-locate">Current</a>
+                </li>
+            </ul>
+            <div class="card" id="map"></div>
+        </div>
+    </form>
+</div>
+<div id="help" class="modal">
+    <header class="bar bar-nav">
+        <a class="icon icon-close pull-right" href="#help"></a>
+        <h1 class="title">Details</h1>
+    </header>
+    <div class="modal-content">
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-divider">Water salinity</li>
+                <li class="table-view-cell">
+                    <p>Select one of the three ways to evaluate the water salinity at the dive location.</p>
+                    <ul>
+                        <li><p><span class="badge badge-primary">Seawater (average)</span> Average seawater salinity.</p></li>
+                        <li><p><span class="badge badge-primary">Freshwater</span> Average fresh water salinity.</p></li>
+                        <li><p><span class="badge badge-primary">Seawater (at location)</span> Allow to select the seawater salinity on a map.</p></li>
+                    </ul>
+                </li>
+                <li class="table-view-divider">Water surface temperature</li>
+                <li class="table-view-cell">
+                    <p>Select the temperature of the water (at the surface) at your dive location.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <p>Available only with the <span class="badge badge-primary">Seawater (at location)</span> mode.</p>
+                </li>
+                <li class="table-view-divider">Map</li>
+                <li class="table-view-cell">
+                    <p>The map displays an colored overlay representing the level of salinity at each location.</p>
+                    <p>Select (double click) the nearest location to your dive site.</p>
+                    <p>Click on the <span class="badge badge-primary">Current</span> to center the map at your current location.</p>
+                </li>
+                <li class="table-view-divider">Month</li>
+                <li class="table-view-cell">
+                    <p>Select the month during which the dive occurs. Changes to the selection will update the salinity overlay on the map.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

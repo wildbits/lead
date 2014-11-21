@@ -1,0 +1,6 @@
+<div>
+    <img class="media-object pull-left gear-img" src="<%=json.img%>">
+    <%=json.name%>
+    <p class="gear-features"></p>
+</div>
+<button class="btn btn-positive <%=(mode == 'add') ? 'add' : 'remove'%>-gear" id="<%=json.id%>"><%=(mode == 'add') ? 'Add' : 'Remove'%></button>

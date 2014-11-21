@@ -1,0 +1,5 @@
+<% var uv = new app.units.Unit(json.value.value, json.value.unit); %>
+<% var measure = uv.measure(); %>
+<% var precision = (json.precision) ? json.precision : 0; %>
+<%= uv.as(config.units[measure]).format(json.precision) %>
+<span class="icon icon-<%=(uv.value() > 0) ? 'up' : 'down'%> icon-buoyancy"></span>
