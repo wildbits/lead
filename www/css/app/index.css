@@ -1,0 +1,120 @@
+/**
+ * Copyright 2014 wildbits org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body, .main-view, .content, .modal-content {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    padding-top: 50px;
+    overflow: scroll;
+}
+
+.table-view img {
+    max-height: 5em;
+    max-width: 5em;
+}
+
+.bar-tab img {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+img.gear-img {
+    max-height: 3em;
+    max-width: 3em;
+}
+
+.bar-nav .segmented-control {
+    max-width: 200px;
+}
+
+.content .card, .content .card div {
+    height: auto;
+}
+
+.table-view-cell select {
+    margin-bottom: 0px;
+}
+
+.table-view-cell-no-padding {
+    padding: 11px 11px 11px 11px;
+}
+
+.main-result {
+    text-align: center;
+}
+
+.main-result .badge {
+    font-size: 2em;
+    margin: 10px;
+    padding: 0.5em;
+}
+
+img.gear-detail {
+    max-height: 2.5em;
+    max-width: 2.5em;
+}
+
+.icon-buoyancy {
+    font-size: inherit;
+}
+
+/* map */
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+#map {
+    height: 40em;
+}
+
+/* slider */
+
+.slider {
+    position: absolute;
+}
+
+.slider.left {
+    z-index: 1;
+    -webkit-transform: translate3d(-100%, 0, 0);
+        -ms-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+}
+
+.slider.right {
+    z-index: 3;
+    -webkit-transform: translate3d(100%, 0, 0);
+        -ms-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+}
+
+.slider.center {
+    z-index: 5;
+    -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slider.transition {
+    z-index: 2;
+    -webkit-transition: -webkit-transform .2s;
+       -moz-transition:    -moz-transform .2s;
+            transition:         transform .2s;
+}
