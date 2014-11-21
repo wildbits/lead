@@ -1,0 +1,21 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
+.emulator {
+	width: 80%;
+	height: 80%;
+	min-width: 600px;
+	min-height: 400px;
+	background: blue;
+}
+
+.frame {
+	width: 50%;
+	height: 50%;
+	border: none;
+}
