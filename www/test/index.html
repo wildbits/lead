@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
- Copyright wildbits org
+ Copyright 2014 wildbits org
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -29,6 +29,8 @@
         </div>
         <script src="../js/vendor/jquery/jquery-2.1.1.min.js"></script>
         <script src="../js/vendor/underscore/underscore-1.7.0.min.js"></script>
+        <script src="../js/vendor/leaflet/leaflet-0.7.3.js"></script>
+        <script src="../js/vendor/x2js/xml2json.min.js"></script>
         <script src="../js/vendor/backbone/backbone-1.1.2.min.js"></script>
         <script src="qunit-1.15.0.js"></script>
         <script type='text/javascript'>
@@ -38,12 +40,17 @@
                 models:      {},
                 sliders:     {},
                 stores:      {},
+                units:       {},
                 collections: {},
                 sync:        {}
             };
         </script>
         <script src="../js/app/stores/Store.js"></script>
+        <script src="../js/app/units/Unit.js"></script>
         <script src="../js/app/stores/MemoryStore.js"></script>
+        <script src="../js/app/map/WmsFeatureInfo.js"></script>
         <script src="modules/app/stores/MemoryStore.js"></script>
+        <script src="modules/app/units/Unit.js"></script>
+        <script src="modules/app/map/WmsFeatureInfo.js"></script>
     </body>
 </html>
