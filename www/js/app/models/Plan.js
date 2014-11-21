@@ -15,37 +15,19 @@
  */
 app.models = app.models || {};
 
-app.models.Plan = Backbone.Model.extend({
+/**
+ * A dive plan
+ */
+app.models.Plan = app.models.BaseModel.extend({
 
     initialize: function() {
         this.syncer = app.sync.Syncer.getSync('app.model.Plan', 'default');
     },
 
     defaults : {
-        diver       : {},
-        gears       : [],
-        environment : {}
-    },
-
-    validate: function (attributes) {
-        var diver = attributes.diver;
-        var weight = diver.weight;
-        if (weight) {
-            if (! $.isNumeric(weight) || (weight <= 0)) {
-                return 'weight must be a positive number';
-            }
-        }
-        var height = diver.height;
-        if (height) {
-            if (! $.isNumeric(height) || (height <= 0)) {
-                return 'height must be a positive number';
-            }
-        }
-        return false;
-    },
-
-    sync: function(method, model, options) {
-        return this.syncer.sync(method, model, options);
+        diver       : {}, // the diver associated to the plan
+        gears       : [], // the set of gears selected in the plan
+        environment : {}  // the environment associated to the plan
     }
 
 });

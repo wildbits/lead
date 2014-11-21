@@ -15,6 +15,9 @@
  */
 app.collections = app.collections || {};
 
+/**
+ * A set of dive plans
+ */
 app.collections.Plans = Backbone.Collection.extend({
 
     initialize: function() {
