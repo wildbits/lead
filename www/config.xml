@@ -7,7 +7,7 @@
     <author email="dev@wildbits.org" href="http://www.wildbits.org">
         Wildbits Team
     </author>
-    <icon src="res/icon.png" />
+    <icon src="img/icon.png" />
     <platform name="android">
         <icon src="res/android/ldpi.png" density="ldpi" />
         <icon src="res/android/mdpi.png" density="mdpi" />
