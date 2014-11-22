@@ -2,10 +2,10 @@
 <widget id="org.wilbits.lead" versionCode = "1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Lead</name>
     <description>
-        A buoyancy planner for divers. It computes the amount of lead required for a dive depending on the diver body, set of gears and location of the dive.
+        A buoyancy planner for scuba divers. It computes the amount of lead required for every dive depending on the scuba diver body, set of gears and location of the dive.
     </description>
     <author email="dev@wildbits.org" href="http://www.wildbits.org">
-        Wildbits Team
+        wildbits.github.io
     </author>
     <icon src="img/icon.png" />
     <platform name="android">
