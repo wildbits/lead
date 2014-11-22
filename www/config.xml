@@ -4,7 +4,7 @@
     <description>
         A buoyancy planner for scuba divers. It computes the amount of lead required for every dive depending on the scuba diver body, set of gears and location of the dive.
     </description>
-    <author email="dev@wildbits.org" href="http://www.wildbits.org">
+    <author email="wildbits.github.io@gmail.com" href="http://wildbits.github.io">
         wildbits.github.io
     </author>
     <icon src="img/icon.png" />
