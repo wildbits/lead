@@ -1,3 +1,17 @@
-platforms/android/
-platforms/ios/
+# Android
+*.apk
+*.ap_
+*.dex
+*.class
+Android/bin/
+Android/gen/
+Android/assets/
+bin/
+gen/
+local.properties
+
+# OSX
+.DS_Store
+
+# IntelliJ
 .idea/

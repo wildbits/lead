@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.wilbits.lead" versionCode = "1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.wilbits.lead" versionCode = "2" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Lead</name>
     <description>
-        A buoyancy planner for divers. It computes the amount of lead required for a dive depending on the diver body, set of gears and location of the dive.
+        A buoyancy planner for scuba divers. It computes the amount of lead required for every dive depending on the scuba diver body, set of gears and location of the dive.
     </description>
-    <author email="dev@wildbits.org" href="http://www.wildbits.org">
-        Wildbits Team
+    <author email="wildbits.github.io@gmail.com" href="http://wildbits.github.io">
+        wildbits.github.io
     </author>
     <icon src="img/icon.png" />
     <platform name="android">
@@ -13,8 +13,8 @@
         <icon src="res/android/mdpi.png" density="mdpi" />
         <icon src="res/android/hdpi.png" density="hdpi" />
         <icon src="res/android/xhdpi.png" density="xhdpi" />
-     </platform>
-     <platform name="ios">
+    </platform>
+    <platform name="ios">
         <!-- iOS 7.0+ -->
         <!-- iPhone / iPod Touch  -->
         <icon src="res/ios/icon-60.png" width="60" height="60" />
@@ -38,7 +38,10 @@
         <!-- iPad Spotlight and Settings Icon -->
         <icon src="res/ios/icon-50.png" width="50" height="50" />
         <icon src="res/ios/icon-50@2x.png" width="100" height="100" />
-     </platform>
+    </platform>
+    <preference name="permissions" value="none"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
     <content src="index.html" />
     <access origin="*" />
 </widget>
