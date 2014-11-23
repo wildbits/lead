@@ -71,7 +71,7 @@ app.views.Map = (function() {
     });
 
     var buildSalinityTile = function (month) {
-        var url = 'http://' + NASA_WMS_HOST + SALINITY_PATH;
+        var url = window.location.protocol + '//' + NASA_WMS_HOST + SALINITY_PATH;
         return L.tileLayer.wms(url, {
             detectRetina: true,
             zoom: INIT_ZOOM,
@@ -88,7 +88,7 @@ app.views.Map = (function() {
     };
 
     var buildSalinityFeatureInfo = function (month) {
-        var url = 'http://' + PROXY_NASA_WMS_HOST + SALINITY_PATH;
+        var url = window.location.protocol + '//' + PROXY_NASA_WMS_HOST + SALINITY_PATH;
         return new app.map.WmsFeatureInfo(url, {
             crs: 'CRS:84',
             version: '1.3.0',
@@ -99,7 +99,7 @@ app.views.Map = (function() {
     };
 
     var buildTemperatureFeatureInfo = function (month) {
-        var url = 'http://' + PROXY_NASA_WMS_HOST + TEMPERATURE_PATH;
+        var url = window.location.protocol + '//' + PROXY_NASA_WMS_HOST + TEMPERATURE_PATH;
         return new app.map.WmsFeatureInfo(url, {
             crs: 'CRS:84',
             version: '1.3.0',
