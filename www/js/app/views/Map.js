@@ -144,7 +144,9 @@ app.views.Map = (function() {
 
         marker.addTo(map);
 
-        var baseTile = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+        var baseTileUri = window.location.protocol + '//server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+
+        var baseTile = L.tileLayer(baseTileUri, {
             detectRetina: true,
             zoom: INIT_ZOOM,
             minZoom: MIN_ZOOM,
