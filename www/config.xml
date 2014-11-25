@@ -7,14 +7,15 @@
     <author email="wildbits.github.io@gmail.com" href="http://wildbits.github.io">
         wildbits.github.io
     </author>
-    <icon src="img/icon.png" />
     <platform name="android">
+        <icon src="res/android/icon.png" />
         <icon src="res/android/ldpi.png" density="ldpi" />
         <icon src="res/android/mdpi.png" density="mdpi" />
         <icon src="res/android/hdpi.png" density="hdpi" />
         <icon src="res/android/xhdpi.png" density="xhdpi" />
     </platform>
     <platform name="ios">
+        <icon src="res/ios/icon.png" width="57" height="57" />
         <!-- iOS 7.0+ -->
         <!-- iPhone / iPod Touch  -->
         <icon src="res/ios/icon-60.png" width="60" height="60" />
