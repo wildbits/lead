@@ -71,7 +71,7 @@ app.views.Map = (function() {
     });
 
     var buildSalinityTile = function (month) {
-        var url = window.location.protocol + '//' + NASA_WMS_HOST + SALINITY_PATH;
+        var url = 'http://' + NASA_WMS_HOST + SALINITY_PATH;
         return L.tileLayer.wms(url, {
             detectRetina: true,
             zoom: INIT_ZOOM,
