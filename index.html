@@ -1,7 +1,153 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="refresh" content="0; url=app.html"/>
-    </head>
-</html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lead - A buoyancy planner for scuba divers.">
+    <meta name="author" content="wildbits.github.io">
+    <title>Lead - A buoyancy planner for scuba divers</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><img src="img/icon-1024.png"/> Lead</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="hidden"><a class="page-scroll" href="#page-top"></a></li>
+                    <li><a class="page-scroll" href="#features">Features</a></li>
+                    <li><a class="page-scroll" href="#what">What</a></li>
+                    <li><a class="page-scroll" href="#why">Why</a></li>
+                    <li><a class="page-scroll" href="#how">How</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <section id="intro" class="section intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Lead</h1>
+                    <h3>A buoyancy planner for scuba divers</h3>
+                    <div class="btn-group">
+                        <a class="btn btn-success btn-lg disabled">iOS <span class="glyphicon glyphicon-download"/></a>
+                        <a class="btn btn-success btn-lg" href="http://play.google.com/store/apps/details?id=org.wilbits.lead">Android <span class="glyphicon glyphicon-download"/></a>
+                        <a class="btn btn-success btn-lg" href="http://www.windowsphone.com/en-us/store/app/lead/f1f722a2-4caa-4229-ad7f-6f79badbbc5a">Windows <span class="glyphicon glyphicon-download"/></a>
+                    </div>
+                                            <a class="btn btn-info btn-lg" href="app.html">Webapp <span class="glyphicon glyphicon-chevron-right"/></a>
+                    <p><a class="btn btn-info page-scroll" href="#features">features<span class="glyphicon glyphicon-chevron-down"></span></a></p>
+                    <p class="copyright">
+                        Copyright (c) 2014 wildbits.github.io // <a href="https://raw.githubusercontent.com/wildbits/lead/master/LICENSE">license</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Features</h1>
+                    <h3>Evaluates the amount of lead for every dive.</h3>
+                    <div class="features center-block">
+                        <ul>
+                            <li>Evaluates the minium amount of lead to carry for a dive</li>
+                            <li>Relative mode (based on reference dive) or absolute mode (no reference) evaluation</li>
+                            <li>Detailed computation results</li>
+                            <li>Metric and Imperial units (configurable)</li>
+                            <li>Hydrostatic characteristics of typical gears</li>
+                            <li>Evaluation of Seawater density out of a model including salinity and temperature</li>
+                            <li>Default seawater salinity and temperature derived from based on geolocation (selectable) and date (selectable)</li>
+                            <li>Works offline (except map)</li>
+                        </ul>
+                    </div>
+                    <p><a class="btn btn-info page-scroll" href="#what">what <span class="glyphicon glyphicon-chevron-down"></span></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what" class="section what-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>What</h1>
+                    <p><strong>Lead</strong> is a a buoyancy planner for scuba divers. <strong>Lead</strong> allows to evaluate the amount of weight required for every dive. <strong>Lead</strong> has two modes, absolute and relative.</p>
+                    <h3>Absolute mode</h3>
+                    <p>In this mode, <strong>Lead</strong> evaluates the amount of weight to carry according to the scuba diver body, set of gears and environment.
+                    This mode is useful for scuba divers which have no reference and need an estimation about the weight to carry for a dive.</p>
+                    <h3>Relative mode</h3>
+                    <p>
+                    In this mode, <strong>Lead</strong> evaluates the amount of weight to be added or removed relatively to a reference dive done by the same scuba diver. It compares the scuba diver weight, set of gears and environment of the reference dive as well as the one being planned.
+                    This mode is useful for scuba divers which have built a reference through experience in a specific environment and get to dive in a new and different environment (typical when travelling).</p>
+                    <p><a class="btn btn-info page-scroll" href="#why">why <span class="glyphicon glyphicon-chevron-down"></span></span></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="section why-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Why</h1>
+                    <p>The amount of lead required for a dive is important to maintain a good buoyancy. Scuba divers are advised to follow basic weighting guidelines in order to get an estimation about the amount of weight to carry and fine tune this amount through experience in each environment. Ultimately, scuba divers should reach the perfect weighting for a given environment and keep track of it in a log book for further reference.
+                    </p>
+                    <p>When diving in new conditions, scuba divers should refer to basic weighting guidelines again and start the fine tuning process.
+                    <strong>Lead</strong> aims at leveraging the scuba divers built up experience and automatically evaluate the equivalent amount of weight in different conditions.</p>
+                    <p>
+                    <a class="btn btn-info page-scroll" href="#how">how <span class="glyphicon glyphicon-chevron-down"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="section how-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>How</h1>
+                    <p><strong>Lead</strong> evaluates the minimum amount of weight required so that the scuba diver never ends up being positively buoyant during a dive with an empty BCD, empty cylinder(s) and lungs half full. This allows the scuba diver to control his ascent at any time.</p>
+                    <p>
+                    The minimum amount of weight is related to the maximum buoyancy which is computed using the Archimedes' principle.
+                    The density of the water is computed via a seawater model.
+                    Default values for water temprature and salinity are obtained from NASA Open Data based on geolocation and date.
+                    The human body volume and density is computed via a two-compartment model incorporating the person gender, age, height and weight. The volume is computed for a subject holding a normal breath in his lungs.
+                    The volume maximum and mass minimum for gears is taken or derived from data sheets.
+                    The volume for wetsuits is approximated depending on the scuba diver body surface and the wetsuit thickness.</p>
+                    <h3>Absolute mode</h3>
+                    <p>The absolute mode must approximates the scuba diver's body volume via a model.</p>
+                    <h3>Relative mode</h3>
+                    <p>The relative mode makes the assumption that the scuba diver body has not changed between the reference dive and the one being planned.
+                    The reference dive is assumed to have been ideal and serves to compute the scuba diver body volume.</p>
+                    <p>
+                    <a class="btn btn-info page-scroll" href="#page-top">top <span class="glyphicon glyphicon-chevron-up"></span></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

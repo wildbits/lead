@@ -1,0 +1,114 @@
+/*!
+ * Start Bootstrap - Scrolling Nav HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    width: 100%;
+    height: 100%;
+    
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+.copyright {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    color: gray;
+}
+
+.section .page-scroll {
+    margin-top: 3em;
+}
+
+.intro-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+    background-size: cover;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+.navbar-brand img {
+    position: relative;
+    top: -.5em;
+    float: left;
+    margin-right: 0.5em;
+    width: 2em;
+    height: 2em;
+}
+
+@media only screen and (orientation: landscape) {
+    .intro-section {
+        background-image: url('../img/background-horizontal.png');
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    .intro-section {
+        background-image: url('../img/background-vertical.jpg');
+    }
+}
+
+h1, h2, h3 {
+    color: black;
+}
+
+.intro-section h3 {
+    padding-bottom: 1.8em;
+}
+
+.features-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
+
+.features-section .features {
+    text-align: left;
+    max-width: 34em;
+}
+
+.what-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
+
+.why-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+}
+
+.how-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
