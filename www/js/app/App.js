@@ -27,7 +27,18 @@ app.App = (function () {
         });
     };
 
-    $(document).on("ready", function () {
+    $(document).on('deviceready', function () {
+        // workaround iOS > 7 status bar issue
+        var device = window.device;
+        if (device) {
+            var version = device.version;
+            if (device.platform === 'iOS' && parseFloat(version) >= 7.0) {
+                $('body').css({'margin-top': '20px', height: 'auto'});
+            }
+        }
+    });
+
+    $(document).on('ready', function () {
 
         var gears = 'data/gears.json';
 
