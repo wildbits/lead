@@ -14,6 +14,9 @@
         <icon src="res/android/hdpi.png" density="hdpi" />
         <icon src="res/android/xhdpi.png" density="xhdpi" />
     </platform>
+    <gap:config-file platform="ios" parent="CFBundleVersion">
+        <string>1.0.1.1</string>
+    </gap:config-file>
     <platform name="ios">
         <icon src="res/ios/icon.png" width="57" height="57" />
         <!-- iOS 7.0+ -->
