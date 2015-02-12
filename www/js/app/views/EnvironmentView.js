@@ -242,12 +242,12 @@ app.views.EnvironmentView = (function () {
         updateCoordinates: function (latLng) {
 
             var latFeature = new app.views.FeatureView({
-                model: new app.models.Feature({feature: 'latitude', value: latLng.lat}),
+                model: new app.models.Feature({feature: 'latitude', value: 'Lat. ' + latLng.lat.toFixed(3)}),
                 config: this.config
             });
 
             var lngFeature = new app.views.FeatureView({
-                model: new app.models.Feature({feature: 'longitude', value: latLng.lng}),
+                model: new app.models.Feature({feature: 'longitude', value: 'Long. ' + latLng.lng.toFixed(3)}),
                 config: this.config
             });
 
