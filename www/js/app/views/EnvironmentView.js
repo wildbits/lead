@@ -231,7 +231,7 @@ app.views.EnvironmentView = (function () {
                     } else {
                         self.enableSaveBtn();
                     }
-                    var msg = salinity ? 'Salinity undefined at the location.' : 'Failed to access Open Data server, please try again later.';
+                    var msg = salinity ? 'Salinity undefined, please select a location on the colored overlay.' : 'Failed to access Open Data server, please try again later.';
                     self.displayMessage('negative', msg);
                     self.hideDensity();
                     self.salinity = undefined;
