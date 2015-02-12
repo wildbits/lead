@@ -14,6 +14,9 @@
         <icon src="res/android/hdpi.png" density="hdpi" />
         <icon src="res/android/xhdpi.png" density="xhdpi" />
     </platform>
+    <gap:config-file platform="ios" parent="CFBundleVersion">
+        <string>1.0.1.1</string>
+    </gap:config-file>
     <platform name="ios">
         <icon src="res/ios/icon.png" width="57" height="57" />
         <!-- iOS 7.0+ -->
@@ -39,6 +42,14 @@
         <!-- iPad Spotlight and Settings Icon -->
         <icon src="res/ios/icon-50.png" width="50" height="50" />
         <icon src="res/ios/icon-50@2x.png" width="100" height="100" />
+        <!-- splash -->
+        <splash src="res/ios/Landscape@2x~ipad.png" width="2048" height="1536"/>
+        <splash src="res/ios/Portrait@2x~ipad.png" width="1536" height="2048"/>
+        <splash src="res/ios/Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="res/ios/Portrait~ipad.png" width="768" height="1024"/>
+        <splash src="res/ios/568h@2x~iphone.png" width="640" height="1136"/>
+        <splash src="res/ios/@2x~iphone.png" width="640" height="960"/>
+        <splash src="res/ios/iphone.png" width="480" height="320"/>
     </platform>
     <preference name="permissions" value="none"/>
     <feature name="http://api.phonegap.com/1.0/geolocation"/>

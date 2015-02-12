@@ -213,7 +213,7 @@ app.views.EnvironmentView = (function () {
 
             this.map.getSalinity(latLng, function (salinity) {
 
-                if (salinity.value) {
+                if (salinity && salinity.value) {
 
                     self.salinity = new app.units.Unit({
                         value: salinity.value,
@@ -231,7 +231,8 @@ app.views.EnvironmentView = (function () {
                     } else {
                         self.enableSaveBtn();
                     }
-                    self.displayMessage('negative', "Salinity undefined at the location.");
+                    var msg = salinity ? 'Salinity undefined at the location.' : 'Failed to access Open Data server, please try again later.';
+                    self.displayMessage('negative', msg);
                     self.hideDensity();
                     self.salinity = undefined;
 
@@ -242,12 +243,12 @@ app.views.EnvironmentView = (function () {
         updateCoordinates: function (latLng) {
 
             var latFeature = new app.views.FeatureView({
-                model: new app.models.Feature({feature: 'latitude', value: latLng.lat}),
+                model: new app.models.Feature({feature: 'latitude', value: 'Lat. ' + latLng.lat.toFixed(3)}),
                 config: this.config
             });
 
             var lngFeature = new app.views.FeatureView({
-                model: new app.models.Feature({feature: 'longitude', value: latLng.lng}),
+                model: new app.models.Feature({feature: 'longitude', value: 'Long. ' + latLng.lng.toFixed(3)}),
                 config: this.config
             });
 
