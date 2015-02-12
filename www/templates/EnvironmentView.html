@@ -50,31 +50,29 @@
                 <li class="table-view-cell">
                     <p>Select one of the three ways to evaluate the water salinity at the dive location.</p>
                     <ul>
-                        <li><p><span class="badge badge-primary">Seawater (average)</span> Average seawater salinity (<%=new app.units.Unit({value: 0.035, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(3)%>).</p></li>
-                        <li><p><span class="badge badge-primary">Freshwater</span> Average fresh water salinity (<%=new app.units.Unit({value: 0.0, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(0)%>).</p></li>
-                        <li><p><span class="badge badge-primary">Seawater (at location)</span> Allow to select the seawater salinity on a map.</p></li>
+                        <li><p><span class="badge badge-primary">Seawater (average)</span> Average seawater salinity (<%=new app.units.Unit({value: 0.035, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(3)%>)</p></li>
+                        <li><p><span class="badge badge-primary">Freshwater</span> Average fresh water salinity (<%=new app.units.Unit({value: 0.0, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(0)%>)</p></li>
+                        <li><p><span class="badge badge-primary">Seawater (at location)</span> Seawater salinity computed at a location (selectable on a map) and at a period of the year (selectable)</p></li>
                     </ul>
                 </li>
                 <li class="table-view-divider">Water surface temperature</li>
                 <li class="table-view-cell">
-                    <p>Select the temperature of the water (at the surface) at your dive location.</p>
+                    <p>Select the surface temperature of the water at your dive location.</p>
                 </li>
             </ul>
         </div>
         <div class="card">
             <ul class="table-view">
-                <li class="table-view-cell">
-                    <p>Available only with the <span class="badge badge-primary">Seawater (at location)</span> mode.</p>
-                </li>
                 <li class="table-view-divider">Map</li>
                 <li class="table-view-cell">
-                    <p>The map displays an colored overlay representing the level of salinity at each location.</p>
-                    <p>Select (double click) the nearest location to your dive site.</p>
-                    <p>Click on the <span class="badge badge-primary">Current</span> to center the map at your current location.</p>
+                    <p>The map is only available with the <span class="badge badge-primary">Seawater (at location)</span> selection.</p>
+                    <p>The map displays a colored overlay representing the level of salinity at each location (data from NASA Open Data).</p>
+                    <p>Double click on the nearest location to your dive site.</p>
+                    <p>Click on <a class="btn btn-positive">Current</a> in order to center the map at your current location.</p>
                 </li>
                 <li class="table-view-divider">Month</li>
                 <li class="table-view-cell">
-                    <p>Select the month during which the dive occurs. Changes to the selection will update the salinity overlay on the map.</p>
+                    <p>Select the month during which the dive occurs.</p>
                 </li>
             </ul>
         </div>
