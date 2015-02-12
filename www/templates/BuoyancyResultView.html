@@ -1,11 +1,16 @@
 <% var uv = new app.units.Unit(json.buoyancy); %>
 <% var measure = uv.measure(); %>
+<% var maxExperienceOffset = 2; // kg %>
 <span class="buoyancy"></span><br/>
-<span>
-    <% if (json.buoyancy.value > 0) { %>
-    The resulting buoyancy is positive.<br/>
-    You may <strong>add</strong> a minimum of <strong><%=uv.as(config.units[measure]).format(1)%></strong> of lead.
+<p>
+    <% if (uv.value() > 0) { %>
+    <span class="icon icon-close"></span> The resulting buoyancy is positive which may lead to an uncontrolled ascent during the dive.<br/>
+    <strong>Consider adding a minimum of <%=uv.as(config.units[measure]).format(1)%> of lead.</strong>
 <% } else { %>
-    The resulting buoyancy is negative.
+    <span class="icon icon-check"></span> The resulting buoyancy is <%=(uv.value().toFixed(1) == 0) ? 'neutral' : 'negative' %> which should allow to control the ascent at all time.
 <% } %>
-</span>
+</p>
+<% if (-uv.as('kg').value() < maxExperienceOffset) { %>
+<p><span class="icon icon-info"></span> The computation does not take your experience into account.
+    Consider adding between <%=new app.units.Unit({'value': 0, 'unit':'kg'}).as(config.units['mass']).format(0)%> (most experienced) and <%=new app.units.Unit({'value': maxExperienceOffset, 'unit':'kg'}).as(config.units['mass']).format(1)%> (least experienced) of lead depending on your level of experience.</p>
+<% } %>
