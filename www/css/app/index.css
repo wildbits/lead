@@ -74,6 +74,10 @@ img.gear-detail {
     font-size: inherit;
 }
 
+.justify {
+    text-align: justify;
+}
+
 /* map */
 
 html, body {
