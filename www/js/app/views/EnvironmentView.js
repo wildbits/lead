@@ -213,7 +213,7 @@ app.views.EnvironmentView = (function () {
 
             this.map.getSalinity(latLng, function (salinity) {
 
-                if (salinity.value) {
+                if (salinity && salinity.value) {
 
                     self.salinity = new app.units.Unit({
                         value: salinity.value,
@@ -231,7 +231,8 @@ app.views.EnvironmentView = (function () {
                     } else {
                         self.enableSaveBtn();
                     }
-                    self.displayMessage('negative', "Salinity undefined at the location.");
+                    var msg = salinity ? 'Salinity undefined at the location.' : 'Failed to access Open Data server.';
+                    self.displayMessage('negative', msg);
                     self.hideDensity();
                     self.salinity = undefined;
 
