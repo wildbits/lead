@@ -50,8 +50,8 @@
                 <li class="table-view-cell">
                     <p>Select one of the three ways to evaluate the water salinity at the dive location.</p>
                     <ul>
-                        <li><p><span class="badge badge-primary">Seawater (average)</span> Average seawater salinity.</p></li>
-                        <li><p><span class="badge badge-primary">Freshwater</span> Average fresh water salinity.</p></li>
+                        <li><p><span class="badge badge-primary">Seawater (average)</span> Average seawater salinity (<%=new app.units.Unit({value: 0.035, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(3)%>).</p></li>
+                        <li><p><span class="badge badge-primary">Freshwater</span> Average fresh water salinity (<%=new app.units.Unit({value: 0.0, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(0)%>).</p></li>
                         <li><p><span class="badge badge-primary">Seawater (at location)</span> Allow to select the seawater salinity on a map.</p></li>
                     </ul>
                 </li>
