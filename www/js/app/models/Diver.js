@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2015 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -94,6 +94,43 @@ app.models.Diver = (function () {
         }
     };
 
+    var ESSENTIAL = 'ESSENTIAL',
+        ATHLETE = 'ATHLETE',
+        FIT = 'FIT',
+        AVERAGE = 'AVERAGE',
+        OBESE = 'OBESE';
+
+    var FITNESS = {
+        /**
+         * The male fitness classification according to the fat ratio.
+         * @param fatRatio
+         * @returns {string} representing the class of fitness
+         */
+        male: function (fatRatio) {
+            switch (true) {
+                case fatRatio <= 0.05 : return ESSENTIAL;
+                case fatRatio <= 0.13 : return ATHLETE;
+                case fatRatio <= 0.17 : return FIT;
+                case fatRatio <= 0.24 : return AVERAGE;
+                default               : return OBESE;
+            }
+        },
+        /**
+         * The female fitness classification according to the fat ratio.
+         * @param fatRatio
+         * @returns {string} representing the class of fitness
+         */
+        female: function(fatRatio) {
+            switch (true) {
+                case fatRatio <= 0.13 : return ESSENTIAL;
+                case fatRatio <= 0.20 : return ATHLETE;
+                case fatRatio <= 0.24 : return FIT;
+                case fatRatio <= 0.31 : return AVERAGE;
+                default               : return OBESE;
+            }
+        }
+    };
+
     /**
      * Average lungs volumes characteristics in {@code m^3}
      */
@@ -141,12 +178,14 @@ app.models.Diver = (function () {
         male: {
             FFM_HEIGHT: FFM_HEIGHT.male,
             AVG_LUNGS_VOLUMES: AVG_LUNGS_VOLUMES.male,
-            SURFACE: SURFACE.male
+            SURFACE: SURFACE.male,
+            FITNESS: FITNESS.male
         },
         female: {
             FFM_HEIGHT: FFM_HEIGHT.female,
             AVG_LUNGS_VOLUMES: AVG_LUNGS_VOLUMES.female,
-            SURFACE: SURFACE.female
+            SURFACE: SURFACE.female,
+            FITNESS: FITNESS.female
         }
     };
 
@@ -183,6 +222,7 @@ app.models.Diver = (function () {
             var fatVolume = fatMass / DENSITY_FAT;
 
             var fatRatio = fatMass / weight.value();
+            var fitness = gender.FITNESS(fatRatio);
 
             var gv = gender.AVG_LUNGS_VOLUMES;
             var lungsVolume = gv.erv + gv.rv + gv.tv / 2; // lungs volume at mid functional capacity
@@ -193,6 +233,7 @@ app.models.Diver = (function () {
             this.set('volume',   {value: volume, unit: 'm^3'});
             this.set('density',  {value: density, unit: 'kg/m^3'});
             this.set('fatRatio', {value: fatRatio});
+            this.set('fitness',  {value: fitness});
 
             // evaluate the body surface
 
