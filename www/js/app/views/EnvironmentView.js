@@ -81,7 +81,7 @@ app.views.EnvironmentView = (function () {
                     model: new app.models.Option({
                         name: 'water',
                         data: water,
-                        default: 'specificSeawater',
+                        default: 'seawater',
                         values: ['seawater','specificSeawater','freshwater']
                     }),
                     config: self.config
