@@ -17,16 +17,6 @@ var app = app || {};
 
 app.App = (function () {
 
-    var createPlan = function (planId, diverRequired) {
-        new app.models.Plan({
-            id: planId
-        }).fetch({
-            success: function (plan) {
-                plan.save();
-            }
-        });
-    };
-
     $(document).on('deviceready', function () {
         // workaround iOS > 7 status bar issue
         var device = window.device;
@@ -103,9 +93,13 @@ app.App = (function () {
 
                 // Create the plans if needed
 
-                createPlan('abs');
-                createPlan('rel1');
-                createPlan('rel2');
+                new app.models.Plan({
+                    id: 'abs'
+                }).fetch({
+                    success: function (plan) {
+                        plan.save();
+                    }
+                });
 
                 Backbone.history.start();
 
