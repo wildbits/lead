@@ -50,7 +50,7 @@ app.views.LicenseView = (function () {
 
         acceptLicense: function (e) {
             e.preventDefault();
-            var hash = '#modes';
+            var hash = '#plans/abs/diver';
             app.router.navigate(hash, {trigger: true});
         }
     });

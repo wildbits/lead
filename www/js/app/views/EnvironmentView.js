@@ -32,7 +32,7 @@ app.views.EnvironmentView = (function () {
 
         events: {
             'click .save-environment': 'saveEnvironment',
-            'click .bar-nav .icon-left-nav': 'back',
+            //'click .bar-nav .icon-left-nav': 'back',
             'change .select-month': 'monthChanged',
             'change .select-water': 'waterChanged',
             'click .btn-locate': 'locate'
@@ -197,7 +197,7 @@ app.views.EnvironmentView = (function () {
             this.model.set('environment', updated.toJSON());
 
             this.model.save();
-            Backbone.history.history.back();
+//            Backbone.history.history.back();
         },
 
         salinity: undefined,
@@ -267,11 +267,11 @@ app.views.EnvironmentView = (function () {
         },
 
         disableSaveBtn: function () {
-            this.$el.find('.save-environment').attr("disabled", true);
+            this.$el.find('.save-environment').addClass("disabled");
         },
 
         enableSaveBtn: function () {
-            this.$el.find('.save-environment').attr("disabled", false);
+            this.$el.find('.save-environment').removeClass("disabled");
         },
 
         showDensity: function (salinity) {
@@ -334,10 +334,11 @@ app.views.EnvironmentView = (function () {
         locate: function (e) {
             this.map.locate();
         },
-
+        /*
         back: function () {
             Backbone.history.history.back();
         },
+        */
 
         unbind: function () {
             if (this.map) {
