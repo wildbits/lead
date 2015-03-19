@@ -27,10 +27,6 @@ app.views.AbsoluteResultView = (function () {
 
         className: 'main-view',
 
-        events: {
-            'click .bar-nav .icon-left-nav': 'back'
-        },
-
         initialize: function (options) {
             app.views.BaseView.prototype.initialize.apply(this, arguments);
             this.map = undefined;
@@ -152,10 +148,6 @@ app.views.AbsoluteResultView = (function () {
 
             });
             return this;
-        },
-
-        back: function () {
-            Backbone.history.history.back();
         }
 
     });

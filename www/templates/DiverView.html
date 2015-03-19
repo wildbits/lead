@@ -1,5 +1,5 @@
 <header class="bar bar-nav" xmlns="http://www.w3.org/1999/html">
-    <a href="#plans/abs/gears" class="btn pull-right save-diver btn-positive">
+    <a class="btn pull-right save-diver btn-positive">
         Next
     </a>
     <ul class="steps-menu">
@@ -13,18 +13,20 @@
     <a href="#config" class="icon icon-gear pull-right"></a>
 </div>
 <div class="content">
-    <div class="card">
-        <ul class="table-view">
-            <li class="table-view-cell-no-padding help-card">
-                <img src="img/diver.png"/>
-                <h3>Diver profile</h3>
-            </li>
-            <li class="table-view-cell-no-padding help-card">
-                <p>Provide accurate characteristics of the diver body via the inputs below.</p>
-                <p>Those attributes are used to evaluate the diver's body volume.</p>
-            </li>
-        </ul>
-    </div>
+    <% if (!json.gender) { %>
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell-no-padding help-card">
+                    <img src="img/diver.png"/>
+                    <h3>Diver profile</h3>
+                </li>
+                <li class="table-view-cell-no-padding help-card">
+                    <p>Provide accurate characteristics of the diver body via the inputs below.</p>
+                    <p>Those attributes are used to evaluate the diver's body volume.</p>
+                </li>
+            </ul>
+        </div>
+    <% } %>
     <div class="card">
         <form class="diver-form">
             <ul class="table-view">
