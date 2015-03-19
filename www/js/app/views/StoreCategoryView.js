@@ -28,7 +28,7 @@ app.views.StoreCategoryView = (function () {
         className: 'main-view',
 
         events: {
-            'click .bar-nav .icon-left-nav': 'back',
+            //'click .bar-nav .icon-left-nav': 'back',
             'click .add-gear': 'add'
         },
 
@@ -80,12 +80,17 @@ app.views.StoreCategoryView = (function () {
             this.model.get('gears').push(json);
             this.model.save();
 
-            Backbone.history.history.go(-2);
-        },
+            //Backbone.history.history.go(-2);
+
+            var hash = 'plans/' +  this.model.id + '/gears';
+            app.router.navigate(hash, {trigger: true});
+
+        }/*,
 
         back: function () {
             Backbone.history.history.back();
         }
+        */
 
     });
 
