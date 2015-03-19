@@ -59,12 +59,6 @@ app.views.GearsView = (function () {
                     $gearsList.append(gv.$el);
                 });
 
-                // footer
-
-                self.$el.append(new app.views.ConfigView({
-                    model: self.config
-                }).render().$el);
-
             });
 
             return this;

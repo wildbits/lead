@@ -48,12 +48,6 @@ app.views.StoreView = (function () {
 
                 self.$el.html(_.template(data)(attributes));
 
-                // footer
-
-                self.$el.append(new app.views.ConfigView({
-                    model: self.config
-                }).render().$el);
-
             });
 
             return this;

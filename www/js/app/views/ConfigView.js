@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2015 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ app.views.ConfigView = (function () {
 
         tagName: 'div',
 
-        className: 'modal',
+        className: 'main-view',
 
         id: 'config',
 
@@ -34,8 +34,8 @@ app.views.ConfigView = (function () {
         },
 
         events: {
-            'click .save-units': 'saveUnits',
-            'click .reset-app': 'resetApplication'
+            'click .reset-app' : 'resetApplication',
+            'click .btn-back'  : 'back'
         },
 
         render: function () {
@@ -69,8 +69,7 @@ app.views.ConfigView = (function () {
             window.location.replace("index.html");
         },
 
-        saveUnits: function (e) {
-
+        back: function () {
             var $view = this.$el.find('.table-view');
 
             var updated = new app.models.Config(this.model);

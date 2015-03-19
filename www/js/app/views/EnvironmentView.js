@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2015 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -146,13 +146,6 @@ app.views.EnvironmentView = (function () {
 
                     }, 0);
                 }
-
-
-                // footer
-
-                self.$el.append(new app.views.ConfigView({
-                    model: self.config
-                }).render().$el);
 
             });
             return this;
