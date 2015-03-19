@@ -21,15 +21,16 @@
 <div class="content">
     <div class="card">
         <% if(gears.length == 0) { %>
-        <div class="card">
             <ul class="table-view">
-                <li class="table-view-cell">
-                    <p>
-                        The gear list is empty
-                    </p>
+                <li class="table-view-cell-no-padding help-card">
+                    <img src="img/gears.png"/>
+                    <h3>Gears selection</h3>
+                </li>
+                <li class="table-view-cell-no-padding help-card">
+                    <p>Add all dive equipments that will be worn by the diver during the dive.</p>
+                    <p>The dive gears are required to compute the resulting maximal buoyancy.</p>
                 </li>
             </ul>
-        </div>
         <% } else { %>
             <ul class="table-view selected-gears-view"></ul>
         <% } %>

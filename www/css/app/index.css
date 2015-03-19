@@ -78,6 +78,20 @@ img.gear-detail {
     text-align: justify;
 }
 
+li.help-card {
+    background-color: floralwhite;
+}
+
+li.help-card img {
+    max-height: 2.5em;
+    max-width: 2.5em;
+    vertical-align: middle;
+}
+
+li.help-card h3 {
+    display: inline;
+}
+
 /* map */
 
 html, body {
