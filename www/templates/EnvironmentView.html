@@ -13,15 +13,41 @@
     </ul>
 </header>
 <div class="bar bar-standard bar-footer">
-    <a href="#help" class="pull-left"><span class="icon icon-info"></span></a>
     <a href="#config" class="icon icon-gear pull-right"></a>
 </div>
 <div class="content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell-no-padding help-card">
+                <img src="img/environment.png"/>
+                <h3>Water composition</h3>
+            </li>
+            <li class="table-view-divider">Salinity</li>
+            <li class="table-view-cell-no-padding help-card">
+                <p>Select a method to evaluate the water salinity.</p>
+                <p>Average methods assume <span style="white-space: nowrap;"><%=new app.units.Unit({value: 0.035, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(3)%></span>
+                    for seawater and <span style="white-space: nowrap;"><%=new app.units.Unit({value: 0.0, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(0)%></span> for fresh water.</p>
+                <p>Location based method fetches salinity data from NASA.</p>
+            </li>
+            <li class="table-view-divider">Surface temperature</li>
+            <li class="table-view-cell-no-padding help-card">
+                <p>Select the surface temperature of the water at your dive location.</p>
+            </li>
+            <li class="table-view-divider">Map</li>
+            <li class="table-view-cell-no-padding help-card">
+                <p>Double click on the nearest location to your dive site (only with location based method).</p>
+            </li>
+            <li class="table-view-divider">Month</li>
+            <li class="table-view-cell-no-padding help-card">
+                <p>Select the month during which the dive occurs (only with location based method).</p>
+            </li>
+        </ul>
+    </div>
     <form class="data-form">
         <div class="card">
             <ul class="table-view">
-                <li class="table-view-divider water-salinity">Water salinity</li>
-                <li class="table-view-divider water-temperature">Water surface temperature</li>
+                <li class="table-view-divider water-salinity">Salinity</li>
+                <li class="table-view-divider water-temperature">Surface temperature</li>
             </ul>
         </div>
         <div class="card card-water-specific">
@@ -44,44 +70,4 @@
             <div class="card" id="map"></div>
         </div>
     </form>
-</div>
-<div id="help" class="modal">
-    <header class="bar bar-nav">
-        <a class="icon icon-close pull-right" href="#help"></a>
-        <h1 class="title">Details</h1>
-    </header>
-    <div class="modal-content">
-        <div class="card">
-            <ul class="table-view">
-                <li class="table-view-divider">Water salinity</li>
-                <li class="table-view-cell-no-padding">
-                    <p>Select one of the three ways to evaluate the water salinity at the dive location.</p>
-                    <ul>
-                        <li><p><span class="badge badge-primary">Seawater (average)</span> Average seawater salinity (<span style="white-space: nowrap;"><%=new app.units.Unit({value: 0.035, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(3)%>)</span></span></p></li>
-                        <li><p><span class="badge badge-primary">Freshwater</span> Average fresh water salinity (<span style="white-space: nowrap;"><%=new app.units.Unit({value: 0.0, unit: 'kg/kg'}).as(config.units['mass-fraction']).format(0)%></span>)</p></li>
-                        <li><p><span class="badge badge-primary">Seawater (at location)</span> Seawater salinity computed at a location (selectable on a map) and at a period of the year (selectable)</p></li>
-                    </ul>
-                </li>
-                <li class="table-view-divider">Water surface temperature</li>
-                <li class="table-view-cell-no-padding">
-                    <p>Select the surface temperature of the water at your dive location.</p>
-                </li>
-            </ul>
-        </div>
-        <div class="card">
-            <ul class="table-view">
-                <li class="table-view-divider">Map</li>
-                <li class="table-view-cell-no-padding">
-                    <p>The map is only available with the <span class="badge badge-primary">Seawater (at location)</span> selection.</p>
-                    <p>The map displays a colored overlay representing the level of salinity at each location (data from NASA Open Data).</p>
-                    <p>Double click on the nearest location to your dive site.</p>
-                    <p>Click on <a class="btn btn-positive"><span class="icon icon-refresh"></span> Locate</a> in order to center the map at your current location.</p>
-                </li>
-                <li class="table-view-divider">Month</li>
-                <li class="table-view-cell-no-padding">
-                    <p>Select the month during which the dive occurs.</p>
-                </li>
-            </ul>
-        </div>
-    </div>
 </div>
