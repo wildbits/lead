@@ -26,11 +26,6 @@ app.views.StoreView = (function () {
         tagName: 'div',
 
         className: 'main-view',
-        /*
-        events: {
-            'click .bar-nav .icon-left-nav': 'back'
-        },
-        */
 
         initialize: function (options) {
             app.views.BaseView.prototype.initialize.apply(this, arguments);
@@ -62,12 +57,7 @@ app.views.StoreView = (function () {
             });
 
             return this;
-        }/*,
-
-        back: function () {
-            Backbone.history.history.back();
-        }*/
-
+        }
     });
 
 })();

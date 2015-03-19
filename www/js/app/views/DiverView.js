@@ -28,8 +28,7 @@ app.views.DiverView = (function () {
         className: 'main-view',
 
         events: {
-            'click .save-diver': 'saveDiver'//,
-            //'click .bar-nav .icon-left-nav': 'back'
+            'click .save-diver': 'saveDiver'
         },
 
         initialize: function (options) {
@@ -135,13 +134,10 @@ app.views.DiverView = (function () {
             this.model.set('diver', updated.toJSON());
 
             this.model.save();
-            //Backbone.history.history.back();
-        }
-        /*,
 
-        back: function () {
-            Backbone.history.history.back();
-        }*/
+            var hash = 'plans/' +  this.model.id + '/gears';
+            app.router.navigate(hash, {trigger: true});
+        }
 
     });
 

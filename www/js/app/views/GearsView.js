@@ -28,7 +28,6 @@ app.views.GearsView = (function () {
         className: 'main-view',
 
         events: {
-            'click .bar-nav .icon-left-nav': 'back',
             'click .add-gears': 'addGear',
             'click .remove-gear': 'removeGear'
         },
@@ -69,10 +68,6 @@ app.views.GearsView = (function () {
             });
 
             return this;
-        },
-
-        back: function () {
-            Backbone.history.history.back();
         },
 
         addGear: function (e) {
