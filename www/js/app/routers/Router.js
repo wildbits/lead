@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2015 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,9 @@ app.routers.Router = Backbone.Router.extend({
 
     routes: {
         ''                                        : 'license',
-        'modes'                                   : 'modes',
+        'config'                                  : 'config',
         'modes/absolute/:id'                      : 'modeAbsolute',
-        'modes/relative/:id/:id'                  : 'modeRelative',
         'plans/:id/result'                        : 'planAbsoluteResult',
-        'plans/:id/:id/result'                    : 'planRelativeResult',
         'plans/:id/diver'                         : 'planDiver',
         'plans/:id/gears'                         : 'planGears',
         'plans/:id/gears/store'                   : 'planStore',
@@ -120,6 +118,16 @@ app.routers.Router = Backbone.Router.extend({
                         self.showView(view);
                     }
                 });
+            }
+        });
+    },
+
+    config: function () {
+        var self = this;
+        new app.models.Config({id: 'config'}).fetch({
+            success: function (config) {
+                var view = new app.views.ConfigView({model: config.toJSON(), config: config.toJSON()});
+                self.showView(view);
             }
         });
     },

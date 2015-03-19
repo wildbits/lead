@@ -140,12 +140,6 @@ app.views.AbsoluteResultView = (function () {
                     );
                 });
 
-                // footer
-
-                self.$el.append(new app.views.ConfigView({
-                    model: self.config
-                }).render().$el);
-
             });
             return this;
         }

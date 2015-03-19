@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2015 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,12 +107,6 @@ app.views.DiverView = (function () {
                     }),
                     config: self.config
                 }).render(0).$el);
-
-                // footer
-
-                self.$el.append(new app.views.ConfigView({
-                    model: self.config
-                }).render().$el);
 
             });
 
