@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2015 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,9 +46,9 @@ app.views.GearLinkView = (function () {
                     config: self.config
                 }));
 
-                var $features = self.$el.find('.gear-features-' + json.id);
+                var $features = self.$el.find('.gear-features');
 
-                var features = { size: undefined, material: undefined, capacity: 1, mass:1 };
+                var features = { size: undefined, material: undefined, mass:1, volume:1 };
 
                 for (var feature in features) {
                     if (features.hasOwnProperty(feature)) {

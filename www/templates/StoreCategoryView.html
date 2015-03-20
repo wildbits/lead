@@ -13,6 +13,20 @@
     <a href="#config" class="icon icon-gear pull-right"></a>
 </div>
 <div class="content">
+    <% if(json.gears.length == 0) { %>
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell-no-padding help-card">
+                    <img src="img/gears.png"/>
+                    <h3>Gears</h3>
+                </li>
+                <li class="table-view-cell-no-padding help-card">
+                    <p>Select a gear from the list below. The gear maximal volume and maximal mass are provided as information.</p>
+                    <p>Cylinders include a valve. Suits don't provide volume and mass as it is a function of the user body.</p>
+                </li>
+            </ul>
+        </div>
+    <% } %>
     <div class="card">
         <ul class="table-view gears-list">
         </ul>

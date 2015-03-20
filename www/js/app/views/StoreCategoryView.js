@@ -41,7 +41,12 @@ app.views.StoreCategoryView = (function () {
 
             app.cache.Cache.get(template, function(data) {
 
-                self.$el.html(_.template(data)({}));
+                var json = self.model.toJSON();
+
+                self.$el.html(_.template(data)({
+                    json: json,
+                    config: self.config
+                }));
 
                 var $gearsList = self.$el.find('.gears-list');
 
