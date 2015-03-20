@@ -120,13 +120,7 @@ app.views.AbsoluteResultView = (function () {
                         config: self.config
                     }).render().$el);
 
-                // gears summary
 
-                self.$el.find('.table-view .gears').after(
-                    new app.views.GearsSummaryResultView({
-                        model: self.model,
-                        config: self.config
-                    }).render().$el);
 
                 // gears
 
@@ -139,7 +133,6 @@ app.views.AbsoluteResultView = (function () {
                         }).render().$el
                     );
                 });
-
             });
             return this;
         }
