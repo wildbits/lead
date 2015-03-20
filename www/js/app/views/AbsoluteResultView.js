@@ -97,7 +97,7 @@ app.views.AbsoluteResultView = (function () {
 
                 // Buoyancy
 
-                self.$el.find('.table-view .environment').before(
+                self.$el.find('.table-view .results').after(
                     new app.views.BuoyancyResultView({
                         model: self.model,
                         config: self.config
