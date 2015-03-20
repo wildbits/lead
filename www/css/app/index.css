@@ -55,6 +55,53 @@ img.gear-img {
     padding: 11px 11px 11px 11px;
 }
 
+
+.result-archimedes table {
+    width: 100%;
+}
+
+.result-archimedes .table-view-divider p {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.result-safe {
+    background-color: yellowgreen;
+    color: ghostwhite;
+}
+
+.result-warning {
+    background-color: orange;
+    color: ghostwhite;
+}
+
+.result-unsafe {
+    background-color: red;
+    color: ghostwhite;
+}
+
+.result-lead {
+    font-size: 24px;
+    font-weight: bold;
+    color: dimgrey;
+}
+
+.result-card li {
+    padding: 8px 0px 8px;
+}
+
+.result-card {
+    margin: 0px;
+}
+
+.result-card td {
+    padding: 4px;
+}
+
+.result-card p {
+    margin-bottom: 0;
+}
+
 .main-result {
     text-align: center;
 }

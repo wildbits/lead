@@ -44,17 +44,6 @@ app.views.BuoyancyResultView = (function () {
                     config: self.config
                 }));
 
-                // buoyancy
-
-                self.$el.find('.buoyancy').html(
-                    new app.views.BuoyancyView({
-                        model: new app.models.Feature({
-                            feature: 'buoyancy',
-                            value: self.model.get('buoyancy')
-                        }),
-                        config: self.config
-                    }).render(1).$el);
-
             });
             return this;
         }

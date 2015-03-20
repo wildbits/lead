@@ -1,16 +1,40 @@
-<% var uv = new app.units.Unit(json.buoyancy); %>
-<% var measure = uv.measure(); %>
-<% var maxExperienceOffset = 2; // kg %>
-<span class="buoyancy"></span><br/>
-<p>
-    <% if (uv.value() > 0) { %>
-    <span class="icon icon-close"></span> The resulting buoyancy is positive which may lead to an uncontrolled ascent during the dive.<br/>
-    <strong>Consider adding a minimum of <%=uv.as(config.units[measure]).format(1)%> of lead.</strong>
-<% } else { %>
-    <span class="icon icon-check"></span> The resulting buoyancy is <%=(uv.value().toFixed(1) == 0) ? 'neutral' : 'negative' %> which should allow to control the ascent at all time.
-<% } %>
-</p>
-<% if (-uv.as('kg').value() < maxExperienceOffset) { %>
-<p><span class="icon icon-info"></span> The computation does not take your experience into account.
-    Consider adding between <%=new app.units.Unit({'value': 0, 'unit':'kg'}).as(config.units['mass']).format(0)%> (most experienced) and <%=new app.units.Unit({'value': maxExperienceOffset, 'unit':'kg'}).as(config.units['mass']).format(1)%> (least experienced) of lead depending on your level of experience.</p>
-<% } %>
+<%
+var maxExperienceOffset = 2; // kg
+var uv = new app.units.Unit(json.buoyancy).as('kg');
+var measure = uv.measure();
+
+var minLead = Math.max(0, uv.value());                        // most experienced
+var maxLead = Math.max(0, uv.value() + maxExperienceOffset);  // least experienced
+
+var safetyClass = (uv.value() < 0) ? ((-uv.value() < maxExperienceOffset) ? 'result-warning' : 'result-safe') : 'result-unsafe' ;
+%>
+
+<div class="card result-card result-archimedes">
+    <ul class="table-view">
+        <li class="table-view-divider <%=safetyClass%>">max buoyancy <%=uv.as(config.units[measure]).format(1)%></li>
+        <li class="table-view-divider">
+            <% if (uv.value() > 0) { %>
+                <p>The buoyancy is positive which could lead to an uncontrolled ascent during the dive.</p>
+            <% } else { %>
+                <p>The buoyancy is <%=(uv.value().toFixed(1) == 0) ? 'neutral' : 'negative' %> which could allow to control the ascent at all time.</p>
+            <% } %>
+        </li>
+        <% if (-uv.as('kg').value() < maxExperienceOffset) { %>
+            <li class="table-view-cell-no-padding">
+                <table>
+                    <tr>
+                        <td><p>Most exp.</p></td>
+                        <td><p>Least exp.</p></td>
+                    </tr>
+                    <tr>
+                        <td class="result-lead"><%=new app.units.Unit(minLead,'kg').as(config.units[measure]).format(1)%></td>
+                        <td class="result-lead"><%=new app.units.Unit(maxLead,'kg').as(config.units[measure]).format(1)%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><p>Depending on your level of experience consider adding an amount of lead in the range above.</p></td>
+                    </tr>
+                </table>
+            </li>
+        <% } %>
+    </ul>
+</div>
