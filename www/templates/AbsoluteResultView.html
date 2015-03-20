@@ -15,7 +15,8 @@
 <div class="result content">
     <div class="card">
         <ul class="table-view">
-            <li class="table-view-divider">Result using Archimedes</li>
+            <li class="table-view-divider results">Result using Archimedes method</li>
+            <li class="table-view-divider details">Computational details</li>
             <li class="table-view-divider environment">
                 Water Density
             </li>
@@ -23,13 +24,8 @@
                 Diver Buoyancy
             </li>
             <% if (json.gears.length > 0) { %>
-                <li class="table-view-divider gears">
+                <li class="table-view-divider gears-details gears">
                     Gears Buoyancy
-                </li>
-                <li class="table-view-cell table-view-cell-no-padding">
-                    <div class="card">
-                        <ul class="table-view gears-details"></ul>
-                    </div>
                 </li>
             <% } %>
         </ul>
