@@ -2,19 +2,15 @@
 
 ## What
 
-**Lead** is a mobile application that allows to evaluate the amount of weight required for every dive. **Lead** has two modes, *absolute* and *relative*.
+**Lead** is a mobile application that allows to evaluate the amount of weight required for every dive. **Lead** implements two methods of evaluation, *Archimedes* and PADI's *Basic Weighting Guidelines*.
 
-### Absolute mode
+### Archimedes method
 
-In this mode, **Lead** evaluates the amount of weight to carry according to the `diver body`, `set of gears` and `environment`.
+With this method, **Lead** evaluates the amount of weight to carry by applying the archimedes principle on the `diver body`, `set of gears` in a specific `environment`. Each element is considered as a mass and volume to compute the resulting buoyancy.
 
-This mode is useful for divers which have no reference and need an estimation about the weight to carry for a dive. 
+### Basic Weighting Guidelines method
 
-### Relative mode
-
-In this mode, **Lead** evaluates the amount of weight to be added or removed relatively to a reference dive done by the same diver. It compares the `diver weight`, `set of gears` and `environment` of the reference dive as well as the one being planned.
-
-This mode is useful for divers which have built a reference through experience in a specific environment and get to dive in a new and different environment (typical when travelling).
+With this method, **Lead** evaluates the amount of weight to carry by following the PADI's basic weighting guidelines. The result is meant to be a starting point for a buoyancy check.
 
 ## Why
 
@@ -25,6 +21,8 @@ When diving in new conditions, divers should refer to basic weight guidelines ag
 **Lead** aims at leveraging the divers built up experience and automatically evaluate the equivalent amount of weight in different conditions.
 
 ## How
+
+### Archimedes method
 
 **Lead** evaluates the minimum amount of weight required so that the diver never ends up being positively buoyant during a dive with an empty BCD and lungs half full. This allows the diver to control his ascent at any time.
 
@@ -47,9 +45,7 @@ The human body volume and density is computed via a two-compartment model (see [
 The volume maximum and mass minimum for gears is taken or derived from data sheets.
 The volume for wet suits is approximated depending on the diver surface and the wet suit thickness.
 
-### Absolute mode
-
-The absolute mode must approximates the diver's body volume via a model.
+The diver's body volume is evaluated via a model.
 The minimum amount of weight required is estimated by computing the following equation
 
 ```
@@ -60,20 +56,9 @@ element is the diver body or a gear
 ρ is the density of the water
 ```
 
-### Relative mode
+### Basic Weighting Guidelines method
 
-The relative mode makes the asumption that the diver body has not changed between the reference dive and the one being planned.
-
-The reference dive is assumed to have been ideal and serves to compute the diver body volume.
-The minimum amount of weight to add, or the maximum amount of weight to remove is estimated using the following equation
-
-```
-Δlead = plan_Σ[buoyancy_max(element,plan_ρ)] - ref_Σ[buoyancy_max(element, ref_ρ)]
-
-where 
-element is the diver body or a gear
-ρ is the density of the water
-```
+The PADI's Basic Weighting Guidelines is implemented and takes into account the buoyancy of the cylinders, the type of suits, the diver fitness (computed through a model).
 
 
 # Disclaimer
@@ -98,7 +83,8 @@ the Work and assume any risks associated with Your exercise of permissions under
 
 
 * Evaluates the minium amount of lead to carry for a dive
-* Relative mode (based on reference dive) or absolute mode (no reference) evaluation
+* Archimedes method
+* PADI's Basic Weighting Guidelines method
 * Detailed computation results
 * Metric/Imperial units 
 * Hydrostatic characteristics of typical gears
