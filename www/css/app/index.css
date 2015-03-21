@@ -65,25 +65,25 @@ img.gear-img {
     font-size: 13px;
 }
 
-.result-safe {
-    background-color: yellowgreen;
-    color: ghostwhite;
+li.result-safe {
+    background-color: #9acd32 !important;
+    color: #f8f8ff;
 }
 
-.result-warning {
-    background-color: orange;
-    color: ghostwhite;
+li.result-warning {
+    background-color: #ffa500 !important;
+    color: #f8f8ff;
 }
 
-.result-unsafe {
-    background-color: red;
-    color: ghostwhite;
+li.result-unsafe {
+    background-color: #ff0000 !important;
+    color: #f8f8ff;
 }
 
 .result-lead {
     font-size: 24px;
     font-weight: bold;
-    color: dimgrey;
+    color: #696969;
 }
 
 .result-card li {
@@ -126,7 +126,7 @@ img.gear-detail {
 }
 
 li.help-card {
-    background-color: floralwhite;
+    background-color: #fffaf0;
 }
 
 li.help-card img {
@@ -238,11 +238,11 @@ ul.steps-menu li::before {
 }
 
 ul.steps-menu li.active {
-    color: cornflowerblue;
-    border-color: cornflowerblue;
+    color: #6495ed;
+    border-color: #6495ed;
     font-weight: bold;
 }
 
 ul.steps-menu li.active::before {
-    background-color: cornflowerblue;
+    background-color: #6495ed;
 }
