@@ -17,7 +17,7 @@
 
     module("app.guidelines.PadiBasic", {});
 
-    var EPSILON = 0.0001;
+    var EPSILON = 0.1;
 
     var compareFloats = function (f1, f2) {
         return Math.abs(f2 - f1) < EPSILON;
@@ -33,7 +33,7 @@
         var estimateInFreshWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'MEDIUM_WET_SUIT', 70, 0.20590641524, 'male', 2);
         var weightInFreshWater = estimateInFreshWater.total;
         equal(true, compareFloats(weightInFreshWater.min(), weightInFreshWater.max()));
-        equal(true, compareFloats(weightInFreshWater.min(), 6.7));
+        equal(true, compareFloats(weightInFreshWater.min(), 6.4));
 
     });
 
@@ -63,11 +63,6 @@
         assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('UNKNOWN', 'SHELL_DRY_SUIT_HEAVY', 50, 0.20590641524, 'male', 2); } );
         assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('FRESH', 'UNKNOWN', 50, 0.20590641524, 'male', 2); } );
         assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('FRESH', 'SWIMSUIT', 50, 'UNKNOWN', 'male', 2); } );
-    });
-
-    test("undefined guideline value", 1, function(assert) {
-        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'SHELL_DRY_SUIT_HEAVY', 30, 0.20590641524, 'male', 2);
-        equal(estimateInSeaWater, undefined);
     });
 
 
