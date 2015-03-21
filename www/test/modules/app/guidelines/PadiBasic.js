@@ -17,50 +17,56 @@
 
     module("app.guidelines.PadiBasic", {});
 
+    var EPSILON = 0.0001;
+
+    var compareFloats = function (f1, f2) {
+        return Math.abs(f2 - f1) < EPSILON;
+    };
+
     test("PADI example 1", 4, function(assert) {
 
-        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('SEA', 'MEDIUM_WET_SUIT', 70, 'FIT', 2);
+        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('SEA', 'MEDIUM_WET_SUIT', 70, 0.20590641524, 'male', 2);
         var weightInSeaWater = estimateInSeaWater.total;
-        equal(weightInSeaWater.min(), weightInSeaWater.max());
-        equal(weightInSeaWater.min(), 9);
+        equal(true, compareFloats(weightInSeaWater.min(), weightInSeaWater.max()));
+        equal(true, compareFloats(weightInSeaWater.min(), 9));
 
-        var estimateInFreshWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'MEDIUM_WET_SUIT', 70, 'FIT', 2);
+        var estimateInFreshWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'MEDIUM_WET_SUIT', 70, 0.20590641524, 'male', 2);
         var weightInFreshWater = estimateInFreshWater.total;
-        equal(weightInFreshWater.min(), weightInFreshWater.max());
-        equal(weightInFreshWater.min(), 6.7);
+        equal(true, compareFloats(weightInFreshWater.min(), weightInFreshWater.max()));
+        equal(true, compareFloats(weightInFreshWater.min(), 6.7));
 
     });
 
     test("PADI example 2", 2, function(assert) {
 
-        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('SEA', 'SWIMSUIT', 85, 'AVERAGE', 0);
+        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('SEA', 'SWIMSUIT', 85, 0.2558, 'male', 0);
         var weightInSeaWater = estimateInSeaWater.total;
-        equal(weightInSeaWater.max(), weightInSeaWater.max());
-        equal(weightInSeaWater.max(), 2.5);
+        equal(true, compareFloats(weightInSeaWater.max(), weightInSeaWater.max()));
+        equal(true, compareFloats(weightInSeaWater.max(), 2.5));
 
     });
 
     test("PADI example 3", 4, function(assert) {
 
-        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('SEA', 'SHELL_DRY_SUIT_HEAVY', 50, 'FIT', 2);
+        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('SEA', 'SHELL_DRY_SUIT_HEAVY', 50, 0.20590641524, 'male', 2);
         var weightInSeaWater = estimateInSeaWater.total;
-        notEqual(weightInSeaWater.min(), weightInSeaWater.max());
-        equal(weightInSeaWater.mean(), 12);
+        notEqual(true, compareFloats(weightInSeaWater.min(), weightInSeaWater.max()));
+        equal(true, compareFloats(weightInSeaWater.mean(), 12));
 
-        var estimateInFreshWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'SHELL_DRY_SUIT_HEAVY', 50, 'FIT', 2);
+        var estimateInFreshWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'SHELL_DRY_SUIT_HEAVY', 50, 0.20590641524, 'male', 2);
         var weightInFreshWater = estimateInFreshWater.total;
-        notEqual(weightInFreshWater.min(), weightInFreshWater.max());
-        equal(weightInFreshWater.mean(), 10);
+        notEqual(true, compareFloats(weightInFreshWater.min(), weightInFreshWater.max()));
+        equal(true, compareFloats(weightInFreshWater.mean(), 10));
     });
 
     test("illegal parameters", 3, function(assert) {
-        assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('UNKNOWN', 'SHELL_DRY_SUIT_HEAVY', 50, 'FIT', 2); } );
-        assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('FRESH', 'UNKNOWN', 50, 'FIT', 2); } );
-        assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('FRESH', 'SWIMSUIT', 50, 'UNKNOWN', 2); } );
+        assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('UNKNOWN', 'SHELL_DRY_SUIT_HEAVY', 50, 0.20590641524, 'male', 2); } );
+        assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('FRESH', 'UNKNOWN', 50, 0.20590641524, 'male', 2); } );
+        assert.throws( function () { app.guidelines.PadiBasic.estimateWeight('FRESH', 'SWIMSUIT', 50, 'UNKNOWN', 'male', 2); } );
     });
 
     test("undefined guideline value", 1, function(assert) {
-        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'SHELL_DRY_SUIT_HEAVY', 30, 'FIT', 2);
+        var estimateInSeaWater = app.guidelines.PadiBasic.estimateWeight('FRESH', 'SHELL_DRY_SUIT_HEAVY', 30, 0.20590641524, 'male', 2);
         equal(estimateInSeaWater, undefined);
     });
 
