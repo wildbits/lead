@@ -62,10 +62,10 @@ app.views.PadiResultView = (function () {
                 for (var i = 0 ; i < gears.length ; i++) {
                     var gear = app.models.GearFactory.build(gears[i], diver.toJSON());
                     var type = gear.toJSON().type;
-                    if (type) {
+                    var category = gear.toJSON().category;
+                    if (category === 'SUIT') {
                         suits.push(gear);
                     }
-                    var category = gear.toJSON().category;
                     if (category === 'CYLINDER') {
                         cylinders.push(gear);
                         var cylinderSolid = new org.wildbits.hydro.Solid(gear.volume().value(), gear.mass().value());
