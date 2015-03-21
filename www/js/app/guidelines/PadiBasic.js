@@ -112,7 +112,7 @@ app.guidelines.PadiBasic =  (function () {
     };
 
 
-        /**
+    /**
      * Returns the offset of lead required when passing from salt to fresh water.
      * Returns {@code undefined} when the offset is undefined.
      * @param bodyWeight the weight of the diver.
@@ -134,23 +134,18 @@ app.guidelines.PadiBasic =  (function () {
      * Returns {@code undefined} if the PADI guideline is not defined for the input parameters.
      * @throws Error when an argument provided is not supported.
      * @param waterType the type of water in {@code SEA}, {@code FRESH}.
-     * @param suitType the type of suit in {@code SWIMSUIT}, {@code THIN_WET_SUIT}, {@code MEDIUM_WET_SUIT},
+     * @param suitTypes the types of suits in {@code SWIMSUIT}, {@code THIN_WET_SUIT}, {@code MEDIUM_WET_SUIT},
      *        {@code THICK_WET_SUIT}, {@code NEOPRENE_DRY_SUIT}, {@code SHELL_DRY_SUIT_LIGHT},
-     *        {@code SHELL_DRY_SUIT_HEAVY}.
+     *        {@code SHELL_DRY_SUIT_HEAVY}. A diver may wear zero or more suits.
      * @param bodyWeight the weight of the diver in {@code kg}.
      * @param fatRatio the diver fat ratio
      * @param gender the diver gender in 'female', 'male'
      * @param cylindersBuoyancy the maximum buoyancy for all the cylinders to be taken in the dive
      */
-    var estimateWeight = function (waterType, suitType, bodyWeight, fatRatio, gender, cylindersBuoyancy) {
+    var estimateWeight = function (waterType, suitTypes, bodyWeight, fatRatio, gender, cylindersBuoyancy) {
 
         if (waterType !== 'SEA' && waterType !== 'FRESH') {
             illegalArgument(waterType);
-        }
-
-        var suit = SUIT_TYPE[suitType];
-        if (!suit) {
-            illegalArgument(suitType);
         }
 
         var fitness = FITNESS_OFFSET[gender];
@@ -167,8 +162,16 @@ app.guidelines.PadiBasic =  (function () {
         }
 
         // compute suit buoyancy range
-
-        var suitBuoyancy = suit(bodyWeight).add(waterOffset);
+        var suitBuoyancy = new app.math.Range(0.0, 0.0);
+        var suits = $.isArray(suitTypes) ? suitTypes : [suitTypes];
+        for (var j = 0 ; j < suits.length ; j++) {
+            var suit = SUIT_TYPE[suits[j]];
+            if (!suit) {
+                illegalArgument(suitTypes);
+            } else {
+                suitBuoyancy = suitBuoyancy.addRange(suit(bodyWeight)).add(waterOffset);
+            }
+        }
 
         // apply water fitness ratio
 
