@@ -98,17 +98,21 @@ app.guidelines.PadiBasic =  (function () {
     };
 
     /**
-     * Ratios to correct for the diver fitness.
+     * Return the offset in {@code kg} to be added in order to compensate for the diver fat ratio.
+     * Leaner individuals may need less weight, heavier individuals may require more weight
+     * @param fatRatio the diver fat ratio
      */
-    var FITNESS_RATIO = {
-        ESSENTIAL: 1.0,
-        ATHLETE:   0.5,
-        FIT:       0.0,
-        AVERAGE:   0.5,
-        OBESE:     1.0
+    var FITNESS_OFFSET = {
+        male: function (fatRatio) {
+            return 10.023 * fatRatio - 2.0638;
+        },
+        female: function (fatRatio) {
+            return 9.6235 * fatRatio - 2.6722;
+        }
     };
 
-    /**
+
+        /**
      * Returns the offset of lead required when passing from salt to fresh water.
      * Returns {@code undefined} when the offset is undefined.
      * @param bodyWeight the weight of the diver.
@@ -134,10 +138,11 @@ app.guidelines.PadiBasic =  (function () {
      *        {@code THICK_WET_SUIT}, {@code NEOPRENE_DRY_SUIT}, {@code SHELL_DRY_SUIT_LIGHT},
      *        {@code SHELL_DRY_SUIT_HEAVY}.
      * @param bodyWeight the weight of the diver in {@code kg}.
-     * @param fitness the diver fitness
+     * @param fatRatio the diver fat ratio
+     * @param gender the diver gender in 'female', 'male'
      * @param cylindersBuoyancy the maximum buoyancy for all the cylinders to be taken in the dive
      */
-    var estimateWeight = function (waterType, suitType, bodyWeight, fitness, cylindersBuoyancy) {
+    var estimateWeight = function (waterType, suitType, bodyWeight, fatRatio, gender, cylindersBuoyancy) {
 
         if (waterType !== 'SEA' && waterType !== 'FRESH') {
             illegalArgument(waterType);
@@ -148,10 +153,11 @@ app.guidelines.PadiBasic =  (function () {
             illegalArgument(suitType);
         }
 
-        var fitnessRatio = FITNESS_RATIO[fitness];
-        if (fitnessRatio == undefined) {
-            illegalArgument(fitness);
+        var fitness = FITNESS_OFFSET[gender];
+        if (!fitness) {
+            illegalArgument(gender);
         }
+        var fitnessOffset = fitness(fatRatio);
 
         // compute water offset
 
@@ -166,7 +172,7 @@ app.guidelines.PadiBasic =  (function () {
 
         // apply water fitness ratio
 
-        var fittedSuitBuoyancy = suitBuoyancy.add(fitnessRatio);
+        var fittedSuitBuoyancy = suitBuoyancy.add(fitnessOffset);
 
         // compute total buoyancy
 
@@ -174,6 +180,7 @@ app.guidelines.PadiBasic =  (function () {
 
         return {
             suit: suitBuoyancy,
+            fitnessOffset: fitnessOffset,
             fittedSuit: fittedSuitBuoyancy,
             cylinders: cylindersBuoyancy,
             total: totalBuoyancy
