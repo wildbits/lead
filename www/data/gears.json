@@ -59,12 +59,12 @@
         {"category": "SUIT", "name": "Hood Neoprene 7mm",   "thickness": 0.007, "density":300, "surfaceRatio": 0.09, "img": "img/gears/suit.png"},
         {"category": "SUIT", "name": "Hood Neoprene 5mm",   "thickness": 0.005, "density":300, "surfaceRatio": 0.09, "img": "img/gears/suit.png"},
         {"category": "SUIT", "name": "Hood Neoprene 3mm",   "thickness": 0.003, "density":300, "surfaceRatio": 0.09, "img": "img/gears/suit.png"},
-        {"category": "SUIT", "name": "Wet suit Shorty 7mm", "thickness": 0.007, "density":300, "surfaceRatio": 0.64, "img": "img/gears/suit.png"},
-        {"category": "SUIT", "name": "Wet suit Shorty 5mm", "thickness": 0.005, "density":300, "surfaceRatio": 0.64, "img": "img/gears/suit.png"},
-        {"category": "SUIT", "name": "Wet suit Shorty 3mm", "thickness": 0.003, "density":300, "surfaceRatio": 0.64, "img": "img/gears/suit.png"},
-        {"category": "SUIT", "name": "Wet suit Long 7mm",   "thickness": 0.007, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png"},
-        {"category": "SUIT", "name": "Wet suit Long 5mm",   "thickness": 0.005, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png"},
-        {"category": "SUIT", "name": "Wet suit Long 3mm",   "thickness": 0.003, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png"}
+        {"category": "SUIT", "name": "Wet suit Shorty 7mm", "thickness": 0.007, "density":300, "surfaceRatio": 0.64, "img": "img/gears/suit.png", "type": "THICK_WET_SUIT"},
+        {"category": "SUIT", "name": "Wet suit Shorty 5mm", "thickness": 0.005, "density":300, "surfaceRatio": 0.64, "img": "img/gears/suit.png", "type": "MEDIUM_WET_SUIT"},
+        {"category": "SUIT", "name": "Wet suit Shorty 3mm", "thickness": 0.003, "density":300, "surfaceRatio": 0.64, "img": "img/gears/suit.png", "type": "THIN_WET_SUIT"},
+        {"category": "SUIT", "name": "Wet suit Long 7mm",   "thickness": 0.007, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "THICK_WET_SUIT"},
+        {"category": "SUIT", "name": "Wet suit Long 5mm",   "thickness": 0.005, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "MEDIUM_WET_SUIT"},
+        {"category": "SUIT", "name": "Wet suit Long 3mm",   "thickness": 0.003, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "THIN_WET_SUIT"}
     ],
     "cylinders": [
         {"name": "HP130",           "material": "steel",     "capacity": {"value": 0.0160, "unit": "m^3"}, "weight": {"value": 20.3, "unit":"kg"}, "img": "img/gears/cylinder.png"},

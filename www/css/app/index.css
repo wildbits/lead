@@ -56,11 +56,11 @@ img.gear-img {
 }
 
 
-.result-archimedes table {
+.result-card table {
     width: 100%;
 }
 
-.result-archimedes .table-view-divider p {
+.result-card .table-view-divider p {
     font-weight: normal;
     font-size: 13px;
 }

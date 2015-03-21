@@ -26,13 +26,13 @@ app.routers.Router = Backbone.Router.extend({
     routes: {
         ''                                        : 'license',
         'config'                                  : 'config',
-        'modes/absolute/:id'                      : 'modeAbsolute',
-        'plans/:id/result'                        : 'planAbsoluteResult',
-        'plans/:id/diver'                         : 'planDiver',
-        'plans/:id/gears'                         : 'planGears',
-        'plans/:id/gears/store'                   : 'planStore',
-        'plans/:id/gears/store/:id'               : 'planStoreCategory',
-        'plans/:id/environment'                   : 'planEnvironment'
+        'plans/:id/result'                        : 'resultArchimedes',
+        'plans/:id/result-padi'                   : 'resultPadi',
+        'plans/:id/diver'                         : 'diver',
+        'plans/:id/gears'                         : 'gears',
+        'plans/:id/gears/store'                   : 'store',
+        'plans/:id/gears/store/:id'               : 'storeCategory',
+        'plans/:id/environment'                   : 'environment'
     },
 
     showView: function(view) {
@@ -108,7 +108,7 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    planEnvironment: function (planId) {
+    environment: function (planId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
@@ -132,7 +132,7 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    planDiver: function (planId) {
+    diver: function (planId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
@@ -146,13 +146,27 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    planAbsoluteResult: function (planId) {
+    resultArchimedes: function (planId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
                 new app.models.Config({id: 'config'}).fetch({
                     success: function (config) {
                         var view = new app.views.AbsoluteResultView({model: plan, config: config.toJSON()});
+                        self.showView(view);
+                    }
+                });
+            }
+        });
+    },
+
+    resultPadi: function (planId) {
+        var self = this;
+        new app.models.Plan({id: planId}).fetch({
+            success: function (plan) {
+                new app.models.Config({id: 'config'}).fetch({
+                    success: function (config) {
+                        var view = new app.views.PadiResultView({model: plan, config: config.toJSON()});
                         self.showView(view);
                     }
                 });
@@ -178,7 +192,7 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    planGears: function (planId) {
+    gears: function (planId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
@@ -192,7 +206,7 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    planStore: function (planId) {
+    store: function (planId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
@@ -210,7 +224,7 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    planStoreCategory: function (planId, categoryId) {
+    storeCategory: function (planId, categoryId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
