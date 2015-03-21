@@ -119,13 +119,7 @@ app.guidelines.PadiBasic =  (function () {
      * @returns {Number} the offset to be added
      */
     var saltToFreshOffset = function (bodyWeight) {
-        switch (true) {
-            case bodyWeight >= 45 && bodyWeight <= 56 : return -2.0;
-            case bodyWeight >  56 && bodyWeight <= 70 : return -2.3;
-            case bodyWeight >  70 && bodyWeight <= 85 : return -3.0;
-            case bodyWeight >  85 && bodyWeight <= 99 : return -3.2;
-            default                                   : return undefined;
-        }
+        return -0.0263 * bodyWeight - 0.7572;
     };
 
 
