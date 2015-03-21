@@ -1,0 +1,71 @@
+<header class="bar bar-nav">
+    <a href="#plans/abs/result" class="btn pull-left btn-positive">
+        Back
+    </a>
+    <ul class="steps-menu">
+        <li>Diver</li>
+        <li>Gears</li>
+        <li>Water</li>
+        <li class="active">Results</li>
+    </ul>
+</header>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="result content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-divider results">Basic Weighting Guidelines</li>
+            <li class="table-view-cell-no-padding">
+                <div class="card result-card result-padi main-result">
+                    <ul class="table-view">
+                        <li class="table-view-divider">
+                            <p>Choose an amount of lead in the range below in order to get started with a buoyancy check.</p>
+                        </li>
+                        <li class="table-view-cell-no-padding">
+                            <table>
+                                <tr>
+                                    <td class="result-lead"><%=new app.units.Unit(Math.max(0, json.weight.total.min()),'kg').as(config.units['mass']).format(1)%></td>
+                                    <td class="result-lead"><%=new app.units.Unit(Math.max(0, json.weight.total.max()),'kg').as(config.units['mass']).format(1)%></td>
+                                </tr>
+                                <% if (json.suitType == 'SHELL_DRY_SUIT_LIGHT' || json.suitType == 'SHELL_DRY_SUIT_HEAVY') { %>
+                                <tr>
+                                    <td colspan="2"><p>From the range above, choose an amount of lead depending on the buoyancy of your underwear.</p></td>
+                                </tr>
+                                <% } %>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="table-view-divider details">Computational details</li>
+            <li class="table-view-divider environment">
+                Water Density
+            </li>
+            <li class="table-view-divider diver">
+                Diver
+            </li>
+            <li class="table-view-cell-no-padding">
+                <p>Weight compensation for diver fitness <span class="badge badge-primary"><%=new app.units.Unit(json.weight.fitnessOffset,'kg').as(config.units['mass']).format(1)%></span>.</p>
+                <p>Lean divers may need less lead, heavy divers may need more lead.</p>
+            </li>
+            <li class="table-view-divider gears-details gears">
+                Suits
+            </li>
+            <li class="table-view-cell-no-padding">
+                <p>Weight compensation for diver's suits
+                    <span class="badge badge-primary">min <%=new app.units.Unit(json.weight.suit.min(),'kg').as(config.units['mass']).format(1)%></span> to
+                    <span class="badge badge-primary">max <%=new app.units.Unit(json.weight.suit.max(),'kg').as(config.units['mass']).format(1)%></span>
+                </p>
+            </li>
+            <li class="table-view-divider gears-details gears">
+                Cylinders
+            </li>
+            <li class="table-view-cell-no-padding">
+                <p>Weight compensation for all cylinders
+                    <span class="badge badge-primary"><%=new app.units.Unit(json.weight.cylinders,'kg').as(config.units['mass']).format(1)%></span>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
