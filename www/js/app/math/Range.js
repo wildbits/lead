@@ -40,6 +40,10 @@ app.math.Range = (function () {
             return new app.math.Range(min + value, max + value);
         };
 
+        var addRange = function (range) {
+            return new app.math.Range(min + range.min(), max + range.max());
+        };
+
         var mul = function (value) {
             validateNumeric(value);
             return new app.math.Range(min * value, max * value);
@@ -59,6 +63,7 @@ app.math.Range = (function () {
 
         return {
             add: add,
+            addRange: addRange,
             mul: mul,
             mean: mean,
             min: minimum,
