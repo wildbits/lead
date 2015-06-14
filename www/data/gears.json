@@ -65,7 +65,11 @@
         {"category": "SUIT", "name": "Wet suit Long 7mm",   "thickness": 0.007, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "THICK_WET_SUIT"},
         {"category": "SUIT", "name": "Wet suit Long 5mm",   "thickness": 0.005, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "MEDIUM_WET_SUIT"},
         {"category": "SUIT", "name": "Wet suit Long 3mm",   "thickness": 0.003, "density":300, "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "THIN_WET_SUIT"},
-        {"category": "SUIT", "name": "Swimsuit/dive skin",  "thickness": 0.001, "density":300, "surfaceRatio": 0.01, "img": "img/gears/suit.png", "type": "SWIMSUIT"}
+        {"category": "SUIT", "name": "Dry suit Compressed Neoprene 3-4mm", "thickness": 0.0035,   "density":600, "surfaceRatio": 0.95, "img": "img/gears/suit.png", "type": "NEOPRENE_DRY_SUIT"},
+        {"category": "SUIT", "name": "Dry suit Neoprene 7mm",              "thickness": 0.007,   "density":300,  "surfaceRatio": 0.95, "img": "img/gears/suit.png", "type": "NEOPRENE_DRY_SUIT"},
+        {"category": "SUIT", "name": "Dry suit Shell (light underwear)",   "thickness": 0.00243, "density":180,  "surfaceRatio": 0.95, "img": "img/gears/suit.png", "type": "SHELL_DRY_SUIT_LIGHT"},
+        {"category": "SUIT", "name": "Dry suit Shell (heavy underwear)",   "thickness": 0.00553, "density":80,   "surfaceRatio": 0.95, "img": "img/gears/suit.png", "type": "SHELL_DRY_SUIT_HEAVY"},
+        {"category": "SUIT", "name": "Swimsuit/dive skin",                 "thickness": 0.00035, "density":300,  "surfaceRatio": 0.91, "img": "img/gears/suit.png", "type": "SWIMSUIT"}
     ],
     "cylinders": [
         {"name": "HP130",           "material": "steel",     "capacity": {"value": 0.0160, "unit": "m^3"}, "weight": {"value": 20.3, "unit":"kg"}, "img": "img/gears/cylinder.png"},
