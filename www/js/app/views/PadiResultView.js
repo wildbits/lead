@@ -88,12 +88,21 @@ app.views.PadiResultView = (function () {
 
                 // suit type (default to skin)
 
-                var suitType = (suits.length == 0) ? 'SWIMSUIT' : suits[0].toJSON().type ;
-                self.model.set('suitType', suitType);
+                var suitTypes = [];
+                var length = suits.length;
+                if (length == 0) {
+                    suitTypes.push('SWIMSUIT');
+                }
+                for (var j = 0 ; j < length ; j++) {
+                    var suit = suits[j];
+                    suitTypes.push(suit.toJSON().type);
+                }
+
+                self.model.set('suitType', suitTypes);
 
                 // weight to add
 
-                var weight = app.guidelines.PadiBasic.estimateWeight(waterType, suitType, bodyWeight.as('kg').value(), fatRatio, diver.toJSON().gender, cylindersBuoyancy);
+                var weight = app.guidelines.PadiBasic.estimateWeight(waterType, suitTypes, bodyWeight.as('kg').value(), fatRatio, diver.toJSON().gender, cylindersBuoyancy);
 
                 self.model.set('weight', weight);
 
