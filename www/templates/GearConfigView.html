@@ -1,0 +1,46 @@
+<header class="bar bar-nav" xmlns="http://www.w3.org/1999/html">
+    <a href="#plans/abs/diver" class="btn pull-left btn-positive">
+        Back
+    </a>
+    <ul class="steps-menu">
+        <li>Diver</li>
+        <li class="active">Gears</li>
+        <li>Water</li>
+        <li>Results</li>
+    </ul>
+</header>
+<div class="bar bar-standard bar-footer-secondary">
+    <button class="btn btn-positive btn-block add-gears">Set</button>
+</div>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+
+    <% if (json.category == 'CYLINDER') { %>
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell-no-padding help-card">
+                <img src="img/gears/cylinder.png"/>
+                <h3>Set Cylinder Pressure</h3>
+            </li>
+            <li class="table-view-cell-no-padding help-card">
+                <p>Provide accurate amount of gas contained in the cylinder via the inputs below.</p>
+                <p>The gas pressure is required to compute the offset for the pre-dive weight check.</p>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <form class="gear-config-form">
+            <ul class="table-view">
+                <li class="table-view-divider filling-pressure">Filling Pressure</li>
+                <li class="table-view-divider gas-type">Type of Gas</li>
+                <li class="table-view-cell table-view-cell-no-padding">
+                    Air/EANx
+                </li>
+            </ul>
+        </form>
+    </div>
+    <% } %>
+
+</div>

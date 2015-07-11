@@ -32,6 +32,7 @@ app.routers.Router = Backbone.Router.extend({
         'plans/:id/gears'                         : 'gears',
         'plans/:id/gears/store'                   : 'store',
         'plans/:id/gears/store/:id'               : 'storeCategory',
+        'plans/:id/gears/:id/configure'           : 'gearConfigure',
         'plans/:id/environment'                   : 'environment'
     },
 
@@ -215,6 +216,28 @@ app.routers.Router = Backbone.Router.extend({
                         new app.models.Config({id: 'config'}).fetch({
                             success: function (config) {
                                 var view = new app.views.StoreView({collection: gears, model: plan, config: config.toJSON()});
+                                self.showView(view);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    },
+
+    gearConfigure: function (planId, gearId) {
+        var self = this;
+        new app.models.Plan({id: planId}).fetch({
+            success: function (plan) {
+                new app.models.Gear({id: gearId}).fetch({
+                    success: function (gear) {
+                        new app.models.Config({id: 'config'}).fetch({
+                            success: function (config) {
+                                var view = new app.views.GearConfigView({
+                                    collection: gear,
+                                    model: plan,
+                                    config: config.toJSON()
+                                });
                                 self.showView(view);
                             }
                         });
