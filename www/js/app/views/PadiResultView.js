@@ -58,11 +58,13 @@ app.views.PadiResultView = (function () {
                 var suits = [];
                 var cylinders = [];
                 var cylinderSolids = [];
+                var totalGasMass = 0;
                 var gears = self.model.get('gears');
                 for (var i = 0 ; i < gears.length ; i++) {
                     var gear = app.models.GearFactory.build(gears[i], diver.toJSON());
                     var type = gear.toJSON().type;
-                    var category = gear.toJSON().category;
+                    var json = gear.toJSON();
+                    var category = json.category;
                     if (category === 'SUIT') {
                         suits.push(gear);
                     }
@@ -70,11 +72,21 @@ app.views.PadiResultView = (function () {
                         cylinders.push(gear);
                         var cylinderSolid = new org.wildbits.hydro.Solid(gear.volume().value(), gear.mass().value());
                         cylinderSolids.push(cylinderSolid);
+                        if (json.gasMass) {
+                            totalGasMass += new app.units.Unit(json.gasMass).as('kg').value();
+                        }
                     }
                 }
                 var cylindersComposite = new org.wildbits.hydro.Composite(cylinderSolids);
                 var cylindersBuoyancy = cylindersComposite.buoyancy(waterDensity.value());
                 console.log('cylinders buoyancy: ' + cylindersBuoyancy);
+
+                // total gas mass
+
+                self.model.set('totalGasMass', {
+                    value: totalGasMass,
+                    unit: 'kg'
+                });
 
                 // body weight
 

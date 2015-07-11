@@ -6,6 +6,9 @@ var measure = uv.measure();
 var minLead = Math.max(0, uv.value());                        // most experienced
 var maxLead = Math.max(0, uv.value() + maxExperienceOffset);  // least experienced
 
+var totalGasMass = json.totalGasMass ? new app.units.Unit(json.totalGasMass).as('kg') : new app.units.Unit({value: 0, unit: 'kg'});
+var prediveLead = Math.max(0, minLead - totalGasMass.value()); // kg
+
 var safetyClass = (uv.value() < 0) ? ((-uv.value() < maxExperienceOffset) ? 'result-warning' : 'result-safe') : 'result-unsafe' ;
 %>
 
@@ -36,5 +39,22 @@ var safetyClass = (uv.value() < 0) ? ((-uv.value() < maxExperienceOffset) ? 'res
                 </table>
             </li>
         <% } %>
+        <li class="table-view-divider">
+            <p><strong>Steps for a pre-dive weight check</strong></p>
+        </li>
+        <li class="table-view-cell-no-padding">
+            <p>Get in the water with <strong>all the gears selected
+                <% if (prediveLead > 0) { %>
+                    plus <%=new app.units.Unit(prediveLead,'kg').as(config.units[measure]).format(1)%>
+                <% } %>
+                </strong>
+            </p>
+            <span class="icon icon-down-nav"></span>
+            <p>Add/remove lead until <strong>floating at eye level at the surface</strong> with an <strong>empty BCD</strong> and while <strong>holding a normal breath</strong></p>
+            <span class="icon icon-down-nav"></span>
+            <p>Add <strong><%=totalGasMass.as(config.units[measure]).format(1)%> of lead</strong> for the gas you will use during the dive</p>
+            <span class="icon icon-down-nav"></span>
+            <p>Enjoy the dive</p>
+        </li>
     </ul>
 </div>

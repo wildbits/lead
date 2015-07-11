@@ -1,3 +1,6 @@
+<%
+    var totalGasMass = json.totalGasMass ? new app.units.Unit(json.totalGasMass).as('kg') : new app.units.Unit({value: 0, unit: 'kg'});
+%>
 <header class="bar bar-nav">
     <a href="#plans/abs/result" class="btn pull-left btn-positive">
         Back
@@ -20,7 +23,7 @@
                 <div class="card result-card result-padi main-result">
                     <ul class="table-view">
                         <li class="table-view-divider">
-                            <p>Choose an amount of lead in the range below in order to get started with a buoyancy check.</p>
+                            <p>Choose an amount of lead in the range below <strong>in order to get started with a pre-dive buoyancy check</strong>.</p>
                         </li>
                         <li class="table-view-cell-no-padding">
                             <table>
@@ -37,6 +40,21 @@
                                     <td colspan="2"><p>This result does not consider gears other than Cylinders and Suits.</p></td>
                                 </tr>
                             </table>
+                        </li>
+                        <li class="table-view-divider">
+                            <p><strong>Steps for a pre-dive weight check</strong></p>
+                        </li>
+                        <li class="table-view-cell-no-padding">
+                            <p>Get in the water with <strong>all the gears selected
+                                plus <%=new app.units.Unit(Math.max(0, json.weight.total.min()),'kg').as(config.units['mass']).format(1)%>
+                            </strong>
+                            </p>
+                            <span class="icon icon-down-nav"></span>
+                            <p>Add/remove lead until <strong>floating at eye level at the surface</strong> with an <strong>empty BCD</strong> and while <strong>holding a normal breath</strong></p>
+                            <span class="icon icon-down-nav"></span>
+                            <p>Add <strong><%=totalGasMass.as(config.units['mass']).format(1)%> of lead</strong> for the gas you will use during the dive</p>
+                            <span class="icon icon-down-nav"></span>
+                            <p>Enjoy the dive</p>
                         </li>
                     </ul>
                 </div>
