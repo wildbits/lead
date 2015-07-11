@@ -85,6 +85,7 @@ app.views.GearConfigView = (function () {
             cylinder.id = app.ids.Ids.next();
 
             cylinder.pressure = {value: pressure, unit: 'bar'};
+            cylinder = new app.models.Cylinder(cylinder).toJSON();
 
             this.model.get('gears').push(cylinder);
             this.model.save();
