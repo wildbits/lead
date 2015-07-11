@@ -73,14 +73,21 @@ app.views.StoreCategoryView = (function () {
             var gear = _.find(this.collection, function (gear) {
                 return (gear.id == gearId);
             });
+
             var json = gear.toJSON();
-            json.id = app.ids.Ids.next();
-            this.model.get('gears').push(json);
-            this.model.save();
-
             var hash = 'plans/' +  this.model.id + '/gears';
-            app.router.navigate(hash, {trigger: true});
 
+            if (json.category == 'CYLINDER') {
+                // configure the cylinder
+                hash = hash + '/' + json.id + '/configure';
+            } else {
+                json.id = app.ids.Ids.next();
+                this.model.get('gears').push(json);
+                this.model.save();
+
+
+            }
+            app.router.navigate(hash, {trigger: true});
         }
 
     });
