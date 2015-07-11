@@ -38,6 +38,11 @@ app.models.Cylinder = (function () {
      */
     var VALVE_VOLUME = 0.000087;
 
+    /**
+     * Gas temperature in {@code °K}
+     */
+    var GAS_TEMPERATURE = 293.15;
+
     return app.models.Gear.extend({
 
         initialize: function (attributes) {
@@ -65,6 +70,16 @@ app.models.Cylinder = (function () {
             var composite = new org.wildbits.hydro.Composite([cylinder, valve]);
             this.set('volume', {value: composite.volume(), unit: 'm^3'});
             this.set('mass', {value: composite.mass(), unit: 'kg'});
+
+            // compute gas mass at the given pressure (assume gas is dry air, assume gas temperature is 20 °C)
+
+            if (attributes.pressure) {
+                var pressure = new app.units.Unit(attributes.pressure).as('Pa');
+                var air = new org.wildbits.hydro.DryAir();
+                var density = air.density(GAS_TEMPERATURE, pressure.value());
+                var airMass = density * capacity.as('m^3').value();
+                this.set('gasMass', {value: airMass, unit: 'kg'});
+            }
         },
 
         defaults : {

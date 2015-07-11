@@ -61,6 +61,7 @@ app.views.AbsoluteResultView = (function () {
                 // gears
 
                 var gearSolids = [];
+                var totalGasMass = 0;
 
                 var gears = self.model.get('gears');
                 for (var i = 0 ; i < gears.length ; i++) {
@@ -72,7 +73,11 @@ app.views.AbsoluteResultView = (function () {
                         value: gearSolid.buoyancy(waterDensity.value()),
                         unit: 'kg'
                     });
-                    gears[i] = new app.models.Gear(gear.toJSON());
+                    var json = gear.toJSON();
+                    gears[i] = new app.models.Gear(json);
+                    if (json.category === 'CYLINDER' && json.gasMass) {
+                        totalGasMass += new app.units.Unit(json.gasMass).as('kg').value();
+                    }
                 }
 
                 var gearsComposite = new org.wildbits.hydro.Composite(gearSolids);
@@ -87,6 +92,11 @@ app.views.AbsoluteResultView = (function () {
                 var buoyancy = finalComposite.buoyancy(waterDensity.value());
                 self.model.set('buoyancy', {
                     value: buoyancy,
+                    unit: 'kg'
+                });
+
+                self.model.set('totalGasMass', {
+                    value: totalGasMass,
                     unit: 'kg'
                 });
 

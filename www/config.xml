@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.wilbits.lead" versionCode = "3" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.wilbits.lead" versionCode = "4" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Lead</name>
     <description>
         A buoyancy planner for scuba divers. It computes the amount of lead required for every dive depending on the scuba diver body, set of gears and location of the dive.
@@ -15,7 +15,7 @@
         <icon src="res/android/xhdpi.png" density="xhdpi" />
     </platform>
     <gap:config-file platform="ios" parent="CFBundleVersion">
-        <string>1.0.1.2</string>
+        <string>1.0.1.3</string>
     </gap:config-file>
     <platform name="ios">
         <icon src="res/ios/icon.png" width="57" height="57" />

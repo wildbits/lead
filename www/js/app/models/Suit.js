@@ -20,12 +20,7 @@ app.models = app.models || {};
  */
 app.models.Suit = (function () {
 
-    /**
-     * Density of closed cell foamed neoprene in {@code kg•m^-3}
-     */
-    var FOAMED_NEOPRENE_DENSITY = 300;
-
-    var WetSuit = function (surface, thickness) {
+    var WetSuit = function (surface, thickness, density) {
 
         return {
 
@@ -35,7 +30,7 @@ app.models.Suit = (function () {
             },
 
             mass: function () {
-                var mass = this.volume().value() * FOAMED_NEOPRENE_DENSITY;
+                var mass = this.volume().value() * density;
                 return new app.units.Unit(mass, 'kg');
             }
 
@@ -49,7 +44,7 @@ app.models.Suit = (function () {
             app.models.Gear.prototype.initialize.apply(this, arguments);
 
             if (diver) {
-                var wetSuit = new WetSuit(diver.surface.value * attributes['surfaceRatio'], attributes['thickness']);
+                var wetSuit = new WetSuit(diver.surface.value * attributes['surfaceRatio'], attributes['thickness'], attributes['density']);
                 this.set('volume', wetSuit.volume().obj());
                 this.set('mass',   wetSuit.mass().obj());
             }
