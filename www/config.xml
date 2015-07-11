@@ -7,6 +7,7 @@
     <author email="wildbits.github.io@gmail.com" href="http://wildbits.github.io">
         wildbits.github.io
     </author>
+    <icon src="img/icon.png" />
     <platform name="android">
         <icon src="res/android/icon.png" />
         <icon src="res/android/ldpi.png" density="ldpi" />
