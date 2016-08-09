@@ -13,20 +13,90 @@
     <a href="#config" class="icon icon-gear pull-right"></a>
 </div>
 <div class="content">
-    <% if(json.gears.length == 0) { %>
-        <div class="card">
-            <ul class="table-view">
-                <li class="table-view-cell-no-padding help-card">
-                    <img src="img/gears.png"/>
-                    <h3>Gears</h3>
-                </li>
-                <li class="table-view-cell-no-padding help-card">
-                    <p>Select a gear from the list below. The gear maximal volume and maximal mass are provided as information.</p>
-                    <p>Cylinders include a valve. Suits don't provide volume and mass as it is a function of the user body.</p>
-                </li>
-            </ul>
-        </div>
+
+    <% var categoryId = collection[0].get('category'); %>
+    <% if(categoryId === 'CYLINDER') { %>
+
+    <div class="card">
+        <ul class="table-view gear-info">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="img/gears/cylinders.png" class="media-object pull-left gear-img"/>
+                    Cylinder type
+                    <p class="gear-features">
+                        <span class="badge badge-primary">material</span>
+                        <span class="badge badge-primary">mass empty</span>
+                        <span class="badge badge-primary">ext. volume</span>
+                    </p><p>Cylinders include a valve</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% } else if (categoryId === 'BCD') { %>
+    <div class="card">
+        <ul class="table-view gear-info">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="img/gears/bcds.png" class="media-object pull-left gear-img"/>
+                    BCD type
+                    <p class="gear-features">
+                        <span class="badge badge-primary">mass empty</span>
+                        <span class="badge badge-primary">volume empty</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% } else if (categoryId === 'REGULATOR') { %>
+    <div class="card">
+        <ul class="table-view gear-info">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="img/gears/regulators.png" class="media-object pull-left gear-img"/>
+                    Regulator type
+                    <p class="gear-features">
+                        <span class="badge badge-primary">mass</span>
+                        <span class="badge badge-primary">volume</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% } else if (categoryId === 'SUIT') { %>
+    <div class="card">
+
+        <ul class="table-view gear-info">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="img/gears/suits.png" class="media-object pull-left gear-img"/>
+                    Suit type
+                    <p>Suits don't provide volume and mass as it is a function of the user body.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <% } else if (categoryId === 'MISC') { %>
+    <div class="card">
+
+        <ul class="table-view gear-info">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="img/gears/miscs.png" class="media-object pull-left gear-img"/>
+                    Misc
+                    <p class="gear-features">
+                        <span class="badge badge-primary">mass</span>
+                        <span class="badge badge-primary">volume</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
     <% } %>
+
+
+
+
+
     <div class="card">
         <ul class="table-view gears-list">
         </ul>
