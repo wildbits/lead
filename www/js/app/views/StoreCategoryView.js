@@ -44,6 +44,7 @@ app.views.StoreCategoryView = (function () {
                 var json = self.model.toJSON();
 
                 self.$el.html(_.template(data)({
+                    collection: self.collection,
                     json: json,
                     config: self.config
                 }));
