@@ -48,7 +48,7 @@ app.views.GearLinkView = (function () {
 
                 var $features = self.$el.find('.gear-features');
 
-                var features = {  capacity:1 , size: undefined, material: undefined, mass:1, volume: 1};
+                var features = {  capacity:1 , size: undefined, material: undefined, mass:1, volume: 1, pressure:0};
 
                 for (var feature in features) {
                     if (features.hasOwnProperty(feature)) {
