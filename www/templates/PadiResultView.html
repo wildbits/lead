@@ -23,7 +23,7 @@
                 <div class="card result-card result-padi main-result">
                     <ul class="table-view">
                         <li class="table-view-divider">
-                            <p>Choose an amount of lead in the range below <strong>in order to get started with a pre-dive buoyancy check</strong>.</p>
+                            <p>Consider adding an amount of diving weight in the range below <strong>in order to get started with a pre-dive buoyancy check</strong>.</p>
                         </li>
                         <li class="table-view-cell-no-padding">
                             <table>
@@ -33,11 +33,11 @@
                                 </tr>
                                 <% if (json.suitType == 'SHELL_DRY_SUIT_LIGHT' || json.suitType == 'SHELL_DRY_SUIT_HEAVY') { %>
                                 <tr>
-                                    <td colspan="2"><p>From the range above, choose an amount of lead depending on the buoyancy of your underwear.</p></td>
+                                    <td colspan="2"><p>From the range above, choose an amount of diving weight depending on the buoyancy of your underwear.</p></td>
                                 </tr>
                                 <% } %>
                                 <tr>
-                                    <td colspan="2"><p>This result does not consider gears other than Cylinders and Suits.</p></td>
+                                    <td colspan="2"><p><span class="icon icon-info"></span> This result does not consider gears other than Cylinders and Suits.</p></td>
                                 </tr>
                             </table>
                         </li>
@@ -46,13 +46,13 @@
                         </li>
                         <li class="table-view-cell-no-padding">
                             <p>Get in the water with <strong>all the gears selected
-                                plus <%=new app.units.Unit(Math.max(0, json.weight.total.min()),'kg').as(config.units['mass']).format(1)%>
+                                plus <%=new app.units.Unit(Math.max(0, json.weight.total.min()),'kg').as(config.units['mass']).format(1)%> of diving weight
                             </strong>
                             </p>
                             <span class="icon icon-down-nav"></span>
-                            <p>Add/remove lead until <strong>floating at eye level at the surface</strong> with an <strong>empty BCD</strong> and while <strong>holding a normal breath</strong></p>
+                            <p>Add/remove diving weight until <strong>floating at eye level at the surface</strong> with an <strong>empty BCD</strong> and while <strong>holding a normal breath</strong></p>
                             <span class="icon icon-down-nav"></span>
-                            <p>Add <strong><%=totalGasMass.as(config.units['mass']).format(1)%> of lead</strong> for the gas you will use during the dive</p>
+                            <p>Add <strong><%=totalGasMass.as(config.units['mass']).format(1)%> of diving weight</strong> for the gas you will use during the dive</p>
                             <span class="icon icon-down-nav"></span>
                             <p>Enjoy the dive</p>
                         </li>
@@ -68,7 +68,7 @@
             </li>
             <li class="table-view-cell-no-padding">
                 <p>Weight compensation for diver fitness <span class="badge badge-primary"><%=new app.units.Unit(json.weight.fitnessOffset,'kg').as(config.units['mass']).format(1)%></span>.</p>
-                <p>Lean divers may need less lead, heavy divers may need more lead.</p>
+                <p><span class="icon icon-info"></span> Lean divers may need less diving weight, heavy divers may need more diving weight.</p>
             </li>
             <li class="table-view-divider gears-details gears">
                 Suits

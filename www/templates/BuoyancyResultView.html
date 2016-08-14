@@ -10,6 +10,8 @@ var totalGasMass = json.totalGasMass ? new app.units.Unit(json.totalGasMass).as(
 var prediveLead = Math.max(0, minLead - totalGasMass.value()); // kg
 
 var safetyClass = (uv.value() < 0) ? ((-uv.value() < maxExperienceOffset) ? 'result-warning' : 'result-safe') : 'result-unsafe' ;
+
+var emptyCylinderOffset = 0.1; // up to 0.1 kg we consider the cylinders as empty.
 %>
 
 <div class="card result-card result-archimedes">
@@ -34,7 +36,7 @@ var safetyClass = (uv.value() < 0) ? ((-uv.value() < maxExperienceOffset) ? 'res
                         <td class="result-lead"><%=new app.units.Unit(maxLead,'kg').as(config.units[measure]).format(1)%></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><p>Depending on your level of experience consider adding an amount of lead in the range above.</p></td>
+                        <td colspan="2"><p>Depending on your level of experience consider adding an amount of diving weight in the range above.</p></td>
                     </tr>
                 </table>
             </li>
@@ -42,17 +44,28 @@ var safetyClass = (uv.value() < 0) ? ((-uv.value() < maxExperienceOffset) ? 'res
         <li class="table-view-divider">
             <p><strong>Steps for a pre-dive weight check</strong></p>
         </li>
+        <% if (json.hasCylinder === false) { %>
+            <p><span class="icon icon-info" style="color: orange;"></span> Warning your gear selection does not contain a cylinder</p>
+        <% } else if(totalGasMass.obj().value < emptyCylinderOffset) { %>
+        <li class="table-view-cell-no-padding">
+            <p><span class="icon icon-info" style="color: orange;"></span> Warning your cylinder selection are filled at a very low level</p>
+        </li>
+        <% } %>
         <li class="table-view-cell-no-padding">
             <p>Get in the water with <strong>all the gears selected
                 <% if (prediveLead > 0) { %>
-                    plus <%=new app.units.Unit(prediveLead,'kg').as(config.units[measure]).format(1)%>
+                    plus <%=new app.units.Unit(prediveLead,'kg').as(config.units[measure]).format(1)%> of diving weight
                 <% } %>
                 </strong>
             </p>
             <span class="icon icon-down-nav"></span>
-            <p>Add/remove lead until <strong>floating at eye level at the surface</strong> with an <strong>empty BCD</strong> and while <strong>holding a normal breath</strong></p>
+            <p>Add/remove diving weight until <strong>floating at eye level at the surface</strong> with an <strong>empty BCD</strong> and while <strong>holding a normal breath</strong></p>
+            <% if(totalGasMass.obj().value >= emptyCylinderOffset) { %>
             <span class="icon icon-down-nav"></span>
-            <p>Add <strong><%=totalGasMass.as(config.units[measure]).format(1)%> of lead</strong> for the gas you will use during the dive</p>
+            <p>
+                Add <strong><%=totalGasMass.as(config.units[measure]).format(1)%> of diving weight</strong> for the gas you will use during the dive
+            </p>
+            <% } %>
             <span class="icon icon-down-nav"></span>
             <p>Enjoy the dive</p>
         </li>

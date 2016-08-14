@@ -62,6 +62,7 @@ app.views.AbsoluteResultView = (function () {
 
                 var gearSolids = [];
                 var totalGasMass = 0;
+                var hasCylinder = false;
 
                 var gears = self.model.get('gears');
                 for (var i = 0 ; i < gears.length ; i++) {
@@ -76,6 +77,7 @@ app.views.AbsoluteResultView = (function () {
                     var json = gear.toJSON();
                     gears[i] = new app.models.Gear(json);
                     if (json.category === 'CYLINDER' && json.gasMass) {
+                        hasCylinder = true;
                         totalGasMass += new app.units.Unit(json.gasMass).as('kg').value();
                     }
                 }
@@ -99,6 +101,8 @@ app.views.AbsoluteResultView = (function () {
                     value: totalGasMass,
                     unit: 'kg'
                 });
+
+                self.model.set('hasCylinder', hasCylinder);
 
                 self.$el.html(_.template(data)({
                     json: self.model.toJSON(),
