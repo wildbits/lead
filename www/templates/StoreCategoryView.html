@@ -28,7 +28,9 @@
                         <span class="badge badge-primary">material</span>
                         <span class="badge badge-primary">mass empty</span>
                         <span class="badge badge-primary">ext. volume</span>
-                    </p><p><span class="icon icon-info" style="color: #1a9bcb"></span>Cylinders mass and external volume include a valve</p>
+                    </p><p><span class="icon icon-info" style="color: #1a9bcb"></span>Cylinders mass and external volume include a valve of
+                           <%=new app.units.Unit({value: 0.7, unit: 'kg'}).format(1)%> and
+                           <%=new app.units.Unit({value: 0.000087, unit: 'm^3'}).as('l').format(2)%></p>
                 </div>
             </li>
         </ul>
