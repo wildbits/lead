@@ -21,7 +21,7 @@ app.views.Map = (function() {
 
     var PROXY_NASA_WMS_HOST = 'proxy-thredds-jpl-nasa-gov.herokuapp.com';
 
-    var SALINITY_PATH = '/thredds/wms/ncml_aggregation/SalinityDensity/aquarius/aggregate__AQUARIUS_L3_SSS_SMI_MONTHLY_V3.ncml';
+    var SALINITY_PATH = '/thredds/wms/ncml_aggregation/SalinityDensity/aquarius/aggregate__AQUARIUS_L3_SSS_SMI_MONTHLY_V4.ncml';
 
     var TEMPERATURE_PATH = '/thredds/wms/ncml_aggregation/OceanTemperature/amsre/aggregate__AMSRE_L3_SST_1DEG_1MO.ncml';
 
@@ -56,8 +56,8 @@ app.views.Map = (function() {
     };
 
     var getTime = function (month) {
-        var lastYear = new Date().getFullYear() - 1;
-        return getIsoTime(lastYear, MONTHS[month]);
+        var pastYear = new Date().getFullYear() - 2;
+        return getIsoTime(pastYear, MONTHS[month]);
     };
 
     var initPos = [47.3604383, 8.5418468];
