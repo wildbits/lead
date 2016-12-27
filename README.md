@@ -100,6 +100,12 @@ the Work and assume any risks associated with Your exercise of permissions under
 
 The supported platforms are [Google Android](http://www.android.com), [Apple iOS](https://www.apple.com/ios).
 
+## Thanks
+
+Thanks to [JetBrains](https://www.jetbrains.com) for supporting us with [free Open Source License](https://www.jetbrains.com/buy/opensource) of its [IntelliJ IDEA](https://www.jetbrains.com/idea) product.
+
+
+
 ## Misc
 
 Icons are credit of [roundicons.com](http://roundicons.com) with slight modifications as allowed by their [license](http://roundicons.com/usage-license).
