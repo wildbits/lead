@@ -229,16 +229,21 @@ app.routers.Router = Backbone.Router.extend({
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
-                new app.models.Gear({id: gearId}).fetch({
-                    success: function (gear) {
-                        new app.models.Config({id: 'config'}).fetch({
-                            success: function (config) {
-                                var view = new app.views.GearConfigView({
-                                    collection: gear,
-                                    model: plan,
-                                    config: config.toJSON()
-                                });
-                                self.showView(view);
+                new app.models.Config({id: 'config'}).fetch({
+                    success: function (config) {
+                        new app.models.Gear({id: gearId}).fetch({
+                            success: function (gear) {
+                                var category = gear.get('category');
+                                if (category == 'CYLINDER') {
+                                    var view = new app.views.CylinderConfigView({
+                                        collection: gear,
+                                        model: plan,
+                                        config: config.toJSON()
+                                    });
+                                    self.showView(view);
+                                } else {
+                                    console.log("can't configure gear " + gearId + " of type " + category);
+                                }
                             }
                         });
                     }
