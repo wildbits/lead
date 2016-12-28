@@ -120,9 +120,9 @@ app.views.DiverView = (function () {
             var $form = this.$el.find('.diver-form');
 
             diver.set('gender', $form.find('select[name=gender]').val());
-            diver.set('age',    $form.find('select[name=age]').val());
-            diver.set('height', {value: Number($form.find('select[name=height]').val()), unit: 'm'});
-            diver.set('weight', {value: Number($form.find('select[name=weight]').val()), unit: 'kg'});
+            diver.set('age',    Number($form.find('select[name=age]').val()));
+            diver.set('height', new app.units.Unit($form.find('select[name=height]').val(), 'm').obj());
+            diver.set('weight', new app.units.Unit($form.find('select[name=weight]').val(),'kg').obj());
 
             var updated = new app.models.Diver(diver.toJSON());
             this.model.set('diver', updated.toJSON());

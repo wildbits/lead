@@ -165,7 +165,7 @@ app.views.EnvironmentView = (function () {
             // temperature
 
             var temperature = $dataForm.find('select[name=temperature]').val();
-            environment.set('temperature', {value: temperature, unit: 'K'});
+            environment.set('temperature', new app.units.Unit(temperature, 'K').obj());
 
             // specific salinity
 
