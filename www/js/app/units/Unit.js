@@ -180,6 +180,8 @@ app.units = (function () {
             throw 'value must be a numeric value';
         }
 
+        this.v = Number(this.v);
+
         if (! UNITS[this.u]) {
             throw 'unsupported unit: ' + this.u;
         }
