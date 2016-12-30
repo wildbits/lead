@@ -22,6 +22,23 @@ app.models.Gear = app.models.Solid.extend({
 
     initialize: function() {
         this.syncer = app.sync.Syncer.getSync('app.model.Gear', 'mem');
+        switch (this.get('category')) {
+            case 'BCD':
+                this.set('img', 'img/gears/bcd.png');
+                break;
+            case 'MISC':
+                this.set('img', 'img/gears/lead.png');
+                break;
+            case 'REGULATOR':
+                this.set('img', 'img/gears/regulator.png');
+                break;
+            case 'SUIT':
+                this.set('img', 'img/gears/suit.png');
+                break;
+            case 'CYLINDER':
+                this.set('img', 'img/gears/cylinder.png');
+                break;
+        }
     },
 
     defaults : {
