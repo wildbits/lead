@@ -142,7 +142,7 @@ app.views.CylinderEditorView = (function () {
             var maxPressure = new app.units.Unit($form.find('select[name=maxPressure]').val(), 'bar');
             cylinder.set('maxPressure', maxPressure.obj());
             var defaultPressure = cylinder.get('defaultPressure');
-            if (! defaultPressure || defaultPressure.value() < maxPressure.value()) {
+            if (! defaultPressure || defaultPressure.value < maxPressure.value) {
                 cylinder.set('defaultPressure', maxPressure.obj());
             }
 
