@@ -158,7 +158,7 @@ app.views.CylinderEditorView = (function () {
             this.model = new app.models.Cylinder(cylinder.toJSON());
             this.model.save();
 
-            var hash = 'plans/' +  this.model.id + '/gears/store/CYLINDER';
+            var hash = 'plans/abs/gears/store/CYLINDER';
             app.router.navigate(hash, {trigger: true});
 
         }

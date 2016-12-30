@@ -120,7 +120,7 @@ app.views.GearEditorView = (function () {
 
             this.model.save();
 
-            var hash = 'plans/' +  this.model.id + '/gears/store/' + gear.get('category');
+            var hash = 'plans/abs/gears/store/' + gear.get('category');
             app.router.navigate(hash, {trigger: true});
 
         }
