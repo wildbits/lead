@@ -1,0 +1,42 @@
+<header class="bar bar-nav" xmlns="http://www.w3.org/1999/html">
+    <a class="btn pull-right save-cylinder btn-positive">
+        Save
+    </a>
+    <ul class="steps-menu">
+        <li>Diver</li>
+        <li class="active">Gears</li>
+        <li>Water</li>
+        <li>Results</li>
+    </ul>
+</header>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+    <div class="card">
+
+        <ul class="table-view">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="img/gears/cylinders.png" class="media-object pull-left gear-img">
+                    <% if (json.id) { %>
+                    Edit cylinder
+                    <% } else { %>
+                    Create new cylinder
+                    <% } %>
+                    <p>&nbsp;</p><!--<p>&nbsp;</p>-->
+                </div>
+            </li>
+        </ul>
+
+        <form class="cylinder-form">
+            <ul class="table-view">
+                <li class="table-view-divider cylinder-name">Name</li>
+                <li class="table-view-divider cylinder-water-volume">Water volume</li>
+                <li class="table-view-divider cylinder-weight">Weight empty & without manifold</li>
+                <li class="table-view-divider cylinder-material">Material</li>
+                <li class="table-view-divider cylinder-maxPressure">Max filling pressure</li>
+            </ul>
+        </form>
+    </div>
+</div>
