@@ -28,7 +28,8 @@ app.views.CylinderEditorView = (function () {
         className: 'main-view',
 
         events: {
-            'click .save-cylinder': 'saveCylinder'
+            'click .save-cylinder': 'saveCylinder',
+            'click .btn-cancel': 'cancelEdit'
         },
 
         initialize: function (options) {
@@ -121,6 +122,10 @@ app.views.CylinderEditorView = (function () {
             });
 
             return this;
+        },
+
+        cancelEdit: function (e) {
+            Backbone.history.history.back();
         },
 
         saveCylinder: function(e) {
