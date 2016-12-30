@@ -55,7 +55,7 @@ app.views.CylinderEditorView = (function () {
                     model: new app.models.Option({
                         name: 'maxPressure',
                         data: cylinder.get('maxPressure'),
-                        default: {value: 170, unit: 'bar'},
+                        default: {value: 228, unit: 'bar'},
                         values: (function () {
                             var values = [];
                             for (var i = 70 ; i < 330 ; i+=1) { values.push({value: i, unit: 'bar'}); }
@@ -83,7 +83,7 @@ app.views.CylinderEditorView = (function () {
                     model: new app.models.Option({
                         name: 'weight',
                         data: cylinder.get('weight'),
-                        default: {value: 10.1, unit: 'kg'},
+                        default: {value: 15.7, unit: 'kg'},
                         values: (function () {
                             var values = [];
                             for (var i = 0.5 ; i < 40 ; i+=0.1) { values.push({value: i, unit: 'kg'}); }
@@ -99,7 +99,7 @@ app.views.CylinderEditorView = (function () {
                     model: new app.models.Option({
                         name: 'capacity',
                         data: cylinder.get('capacity'),
-                        default: {value: 0.012, unit: 'm^3'},
+                        default: {value: 0.0103, unit: 'm^3'},
                         values: (function () {
                             var values = [];
                             for (var i = 0.0005 ; i < 0.03 ; i+=0.0001) { values.push({value: i, unit: 'm^3'}); }

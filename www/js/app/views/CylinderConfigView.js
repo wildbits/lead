@@ -60,8 +60,8 @@ app.views.CylinderConfigView = (function () {
                         data: defaultPressure.obj(),
                         default: defaultPressure.obj(),
                         values: (function () {
-                            var values = [{value: 1, unit: 'bar'}];
-                            for (var i = 10 ; i <= maxPressure.value() ; i += 10) { values.push({value: i, unit: 'bar'}); }
+                            var values = [];
+                            for (var i = 1 ; i <= maxPressure.value() ; i += 1) { values.push({value: i, unit: 'bar'}); }
                             return values;
                         })()
                     }),
