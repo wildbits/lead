@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2016 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,18 +77,30 @@ app.App = (function () {
                     }
                 });
 
-                // Install the gears
+                // Install the gears if needed
 
                 _.each(gears['gears'], function (gear) {
-                    new app.models.Gear(gear).save();
+                    new app.models.Gear(gear).fetch({
+                        success: function (newGear) {
+                            newGear.save();
+                        }
+                    });
                 });
 
                 _.each(gears['suits'], function (suit) {
-                    new app.models.Suit(suit).save();
+                    new app.models.Suit(suit).fetch({
+                        success: function (newGear) {
+                            newGear.save();
+                        }
+                    });
                 });
 
                 _.each(gears['cylinders'], function (cylinder) {
-                    new app.models.Cylinder(cylinder).save();
+                    new app.models.Cylinder(cylinder).fetch({
+                        success: function (newGear) {
+                            newGear.save();
+                        }
+                    });
                 });
 
                 // Create the plans if needed
