@@ -83,11 +83,12 @@ app.models.Cylinder = (function () {
         },
 
         defaults : {
-            category : 'CYLINDER',     // cylinder type
-            capacity : {unit: 'm^3'},  // the cylinder capacity in {@code m^3}
-            weight   : {unit: 'kg'},   // the weight in {@code kg} of the empty cylinder
-            material : undefined       // the cylinder material in 'aluminium', 'steel'
-        },
+            category : 'CYLINDER',              // cylinder type
+            capacity : {unit: 'm^3'},           // the cylinder capacity in {@code m^3}
+            weight   : {unit: 'kg'},            // the weight in {@code kg} of the empty cylinder
+            material : undefined,               // the cylinder material in 'aluminium', 'steel'
+            img      : 'img/gears/cylinder.png' // the path to the cylinder icon
+         },
 
         validate: function (attrs) {
             return this.validateDefined(attrs, ['material']) || this.validateValue(attrs, ['weight','capacity','volume','mass']);
