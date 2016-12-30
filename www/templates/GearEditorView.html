@@ -1,0 +1,43 @@
+<header class="bar bar-nav" xmlns="http://www.w3.org/1999/html">
+    <a class="btn pull-left btn-positive btn-cancel">
+        Cancel
+    </a>
+    <a class="btn pull-right save-gear btn-positive">
+        Save
+    </a>
+    <ul class="steps-menu">
+        <li>Diver</li>
+        <li class="active">Gears</li>
+        <li>Water</li>
+        <li>Results</li>
+    </ul>
+</header>
+<div class="bar bar-standard bar-footer">
+    <a href="#config" class="icon icon-gear pull-right"></a>
+</div>
+<div class="content">
+    <div class="card">
+
+        <ul class="table-view">
+            <li class="table-view-cell-no-padding help-card">
+                <div>
+                    <img src="<%=json.img%>" class="media-object pull-left gear-img">
+                    <% if (json.id) { %>
+                    Edit gear
+                    <% } else { %>
+                    Create new gear
+                    <% } %>
+                    <p>&nbsp;</p><!--<p>&nbsp;</p>-->
+                </div>
+            </li>
+        </ul>
+
+        <form class="gear-form">
+            <ul class="table-view">
+                <li class="table-view-divider gear-name">Name</li>
+                <li class="table-view-divider gear-volume">Volume</li>
+                <li class="table-view-divider gear-weight">Weight</li>
+            </ul>
+        </form>
+    </div>
+</div>
