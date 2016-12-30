@@ -28,7 +28,9 @@ app.views.StoreCategoryView = (function () {
         className: 'main-view',
 
         events: {
-            'click .add-gear': 'add'
+            'click .add-gear':  'addGear',
+            'click .new-gear':  'newGear',
+            'click .edit-gear': 'editGear'
         },
 
         initialize: function (options) {
@@ -52,6 +54,9 @@ app.views.StoreCategoryView = (function () {
                 var $gearsList = self.$el.find('.gears-list');
 
                 _.each(self.collection, function (gear) {
+                    if(gear.get('category') !== 'SUIT') {
+                        gear.set('allowEdit', true);
+                    }
                     var gv = new app.views.GearLinkView({
                         model: gear,
                         mode: 'add',
@@ -67,7 +72,21 @@ app.views.StoreCategoryView = (function () {
             return this;
         },
 
-        add: function(e) {
+        newGear: function (e) {
+            e.preventDefault();
+            var hash = window.location.hash + '/create';
+            app.router.navigate(hash, {trigger: true});
+        },
+
+        editGear: function (e) {
+            e.preventDefault();
+            var $btn = $(e.currentTarget);
+            var id = $btn.attr('id');
+            var hash = 'plans/' +  this.model.id + '/gears/' + id + '/edit';
+            app.router.navigate(hash, {trigger: true});
+        },
+
+        addGear: function(e) {
             e.preventDefault();
             var $btn = $(e.currentTarget);
             var gearId = $btn.attr('id');
