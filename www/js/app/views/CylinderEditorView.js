@@ -107,7 +107,7 @@ app.views.CylinderEditorView = (function () {
                         })()
                     }),
                     config: self.config
-                }).render(1).$el);
+                }).render(3).$el);
 
                 // Cylinder name
 
