@@ -17,7 +17,7 @@
 
     module("app.map.WmsFeatureInfo", {});
 
-    var fi = new app.map.WmsFeatureInfo('http://proxy-thredds-jpl-nasa-gov.herokuapp.com/thredds/wms/ncml_aggregation/SalinityDensity/aquarius/aggregate__AQUARIUS_L3_SSS_SMI_MONTHLY_V3.ncml', {
+    var fi = new app.map.WmsFeatureInfo('http://proxy-thredds-jpl-nasa-gov.herokuapp.com/thredds/wms/ncml_aggregation/SalinityDensity/aquarius/aggregate__AQUARIUS_L3_SSS_SMI_MONTHLY_V4.ncml', {
         crs: 'CRS:84',
         version: '1.3.0',
         query_layers: 'l3m_data',
@@ -30,7 +30,7 @@
         var latLng = new L.LatLng(-16.426552125, -10.600117875000024);
 
         fi.getFeatureInfo(latLng, function (info) {
-            equal(info.value, 36.67357);
+            equal(info.value, 36.53903);
         });
 
     });
