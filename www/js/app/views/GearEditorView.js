@@ -55,7 +55,7 @@ app.views.GearEditorView = (function () {
                     model: new app.models.Option({
                         name: 'mass',
                         data: gear.get('mass'),
-                        default: {value: 2.0, unit: 'kg'},
+                        default: {value: 1.5, unit: 'kg'},
                         values: (function () {
                             var values = [];
                             for (var i = 0.1 ; i < 99 ; i+=0.1) { values.push({value: i, unit: 'kg'}); }
