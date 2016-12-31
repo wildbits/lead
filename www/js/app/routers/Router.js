@@ -32,7 +32,9 @@ app.routers.Router = Backbone.Router.extend({
         'plans/:id/gears'                         : 'gears',
         'plans/:id/gears/store'                   : 'store',
         'plans/:id/gears/store/:id'               : 'storeCategory',
-        'plans/:id/gears/:id/configure'           : 'gearConfigure',
+        'plans/:id/gears/store/:id/create'        : 'createGear',
+        'plans/:id/gears/:id/configure'           : 'configureGear',
+        'plans/:id/gears/:id/edit'                : 'editGear',
         'plans/:id/environment'                   : 'environment'
     },
 
@@ -225,22 +227,88 @@ app.routers.Router = Backbone.Router.extend({
         });
     },
 
-    gearConfigure: function (planId, gearId) {
+    configureGear: function (planId, gearId) {
         var self = this;
         new app.models.Plan({id: planId}).fetch({
             success: function (plan) {
-                new app.models.Gear({id: gearId}).fetch({
-                    success: function (gear) {
-                        new app.models.Config({id: 'config'}).fetch({
-                            success: function (config) {
-                                var view = new app.views.GearConfigView({
-                                    collection: gear,
-                                    model: plan,
-                                    config: config.toJSON()
-                                });
+                new app.models.Config({id: 'config'}).fetch({
+                    success: function (config) {
+                        new app.models.Gear({id: gearId}).fetch({
+                            success: function (gear) {
+                                var category = gear.get('category');
+                                if (category == 'CYLINDER') {
+                                    var view = new app.views.CylinderConfigView({
+                                        collection: gear,
+                                        model: plan,
+                                        config: config.toJSON()
+                                    });
+                                    self.showView(view);
+                                } else {
+                                    console.log("can't configure gear " + gearId + " of type " + category);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    },
+
+    editGear: function (planId, gearId) {
+
+        var self = this;
+        new app.models.Plan({id: planId}).fetch({
+            success: function (plan) {
+                new app.models.Config({id: 'config'}).fetch({
+                    success: function (config) {
+                        new app.models.Gear({id: gearId}).fetch({
+                            success: function (gear) {
+                                var view;
+                                var category = gear.get('category');
+                                if (category == 'CYLINDER') {
+                                    view = new app.views.CylinderEditorView({
+                                        model: gear,
+                                        config: config.toJSON()
+                                    });
+                                } else {
+                                    view = new app.views.GearEditorView({
+                                        model: gear,
+                                        config: config.toJSON()
+                                    });
+                                }
                                 self.showView(view);
                             }
                         });
+                    }
+                });
+            }
+        });
+    },
+
+    createGear: function (planId, categoryId) {
+        var self = this;
+        new app.models.Plan({id: planId}).fetch({
+            success: function (plan) {
+                new app.models.Config({id: 'config'}).fetch({
+                    success: function (config) {
+                        var view;
+                        if (categoryId == 'CYLINDER') {
+                            view = new app.views.CylinderEditorView({
+                                model: new app.models.Cylinder({}),
+                                config: config.toJSON()
+                            });
+                        } else {
+                            view = new app.views.GearEditorView({
+                                model: new app.models.Gear({
+                                    category: categoryId
+                                }),
+                                config: config.toJSON()
+                            });
+                        }
+                        self.showView(view);
+
+
+
                     }
                 });
             }

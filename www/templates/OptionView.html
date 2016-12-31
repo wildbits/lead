@@ -1,5 +1,18 @@
 <select name="<%=json.name%>" class="select-<%=json.name%>">
 
+    <%
+
+    function isFloat(n){
+        return Number(n) === n && n % 1 !== 0;
+    }
+
+
+    function eq(v1, v2) {
+        return isFloat(v1) && isFloat(v2) ? Math.abs(v1 - v2) < 0.00000000001 : v1 === v2;
+    }
+
+    %>
+
     <% var value = (typeof json.data === 'object') ? json.data.value : json.data ; %>
     <% value = (value) ? value : ((typeof json.default === 'object') ? json.default.value : json.default) ; %>
 
@@ -8,7 +21,7 @@
         <% var optionValue = (typeof json.values[i] === 'object') ? json.values[i].value : json.values[i] ; %>
         <% var optionUnit  = (typeof json.values[i] === 'object') ? json.values[i].unit  : undefined ; %>
 
-        <% var selected = (optionValue == value) ? 'selected' : ''; %>
+        <% var selected = eq(value, optionValue) ? 'selected' : ''; %>
 
         <option value="<%=optionValue%>" <%=selected%>>
 

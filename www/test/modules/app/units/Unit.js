@@ -26,6 +26,11 @@
         assert.throws( function () { new app.units.Unit({value: 1, unit: 'unsupported'}); } );
     });
 
+    test("number coercion", 1, function(assert) {
+        var u1 = new app.units.Unit('4', 'm');
+        equal(u1.value(), 4);
+    });
+
     test("zero value", 1, function(assert) {
         var u1 = new app.units.Unit(0, 'm');
         equal(u1.value(), 0);

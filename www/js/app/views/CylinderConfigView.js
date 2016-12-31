@@ -15,9 +15,9 @@
  */
 app.views = app.views || {};
 
-app.views.GearConfigView = (function () {
+app.views.CylinderConfigView = (function () {
 
-    var template = 'templates/GearConfigView.html';
+    var template = 'templates/CylinderConfigView.html';
 
     app.cache.Cache.get(template);
 
@@ -28,7 +28,7 @@ app.views.GearConfigView = (function () {
         className: 'main-view',
 
         events: {
-            'click .add-gears': 'addGear',
+            'click .add-gears': 'addCylinder',
             'click .btn-back' : 'back'
         },
 
@@ -43,39 +43,37 @@ app.views.GearConfigView = (function () {
 
             app.cache.Cache.get(template, function(data) {
 
-                var gear = self.collection.toJSON();
-                var maxPressure = new app.units.Unit(gear.maxPressure).as('bar');
-                var defaultPressure = new app.units.Unit(gear.defaultPressure).as('bar');
+                var cylinder = self.collection.toJSON();
+                var maxPressure = new app.units.Unit(cylinder.maxPressure).as('bar');
+                var defaultPressure = new app.units.Unit(cylinder.defaultPressure).as('bar');
 
                 self.$el.html(_.template(data)({
-                    json: gear,
+                    json: cylinder,
                     config: self.config
                 }));
 
                 // filling-pressure
 
-                if (gear.category == 'CYLINDER') {
-                    self.$el.find('.filling-pressure').after(new app.views.OptionView({
-                        model: new app.models.Option({
-                            name: 'filling-pressure',
-                            data: defaultPressure.obj(),
-                            default: defaultPressure.obj(),
-                            values: (function () {
-                                var values = [{value: 1, unit: 'bar'}];
-                                for (var i = 10 ; i <= maxPressure.value() ; i += 10) { values.push({value: i, unit: 'bar'}); }
-                                return values;
-                            })()
-                        }),
-                        config: self.config
-                    }).render(0).$el);
-                }
+                self.$el.find('.filling-pressure').after(new app.views.OptionView({
+                    model: new app.models.Option({
+                        name: 'filling-pressure',
+                        data: defaultPressure.obj(),
+                        default: defaultPressure.obj(),
+                        values: (function () {
+                            var values = [];
+                            for (var i = 1 ; i <= maxPressure.value() ; i += 1) { values.push({value: i, unit: 'bar'}); }
+                            return values;
+                        })()
+                    }),
+                    config: self.config
+                }).render(0).$el);
 
             });
 
             return this;
         },
 
-        addGear: function (e) {
+        addCylinder: function (e) {
             e.preventDefault();
 
             var $form = this.$el.find('.gear-config-form');

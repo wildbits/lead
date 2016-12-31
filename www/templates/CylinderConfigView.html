@@ -16,16 +16,17 @@
     <a href="#config" class="icon icon-gear pull-right"></a>
 </div>
 <div class="content">
-
-    <% if (json.category == 'CYLINDER') { %>
     <div class="card">
         <ul class="table-view">
             <li class="table-view-cell-no-padding help-card">
-                <img src="img/gears/cylinder.png"/>
-                <h3>Set cylinder filling</h3>
+                Set filling pressure
             </li>
             <li class="table-view-cell-no-padding help-card">
-                <p>The cylinder filling pressure is required to compute the offset for the pre-dive weight check.</p>
+                <div>
+                    <img src="img/gears/cylinders.png" class="media-object pull-left gear-img">
+                    <%=json.name%>
+                    <p>&nbsp;</p><p>The cylinder filling pressure is required to compute the offset for the pre-dive weight check.</p>
+                </div>
             </li>
         </ul>
     </div>
@@ -40,6 +41,4 @@
             </ul>
         </form>
     </div>
-    <% } %>
-
 </div>

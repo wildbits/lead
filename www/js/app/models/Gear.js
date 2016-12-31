@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 wildbits.github.io
+ * Copyright 2014-2016 wildbits.github.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,24 @@ app.models = app.models || {};
 app.models.Gear = app.models.Solid.extend({
 
     initialize: function() {
-        this.syncer = app.sync.Syncer.getSync('app.model.Gear', 'mem');
+        this.syncer = app.sync.Syncer.getSync('app.model.Gear', 'default');
+        switch (this.get('category')) {
+            case 'BCD':
+                this.set('img', 'img/gears/bcd.png');
+                break;
+            case 'MISC':
+                this.set('img', 'img/gears/lead.png');
+                break;
+            case 'REGULATOR':
+                this.set('img', 'img/gears/regulator.png');
+                break;
+            case 'SUIT':
+                this.set('img', 'img/gears/suit.png');
+                break;
+            case 'CYLINDER':
+                this.set('img', 'img/gears/cylinder.png');
+                break;
+        }
     },
 
     defaults : {

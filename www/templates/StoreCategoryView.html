@@ -28,10 +28,20 @@
                         <span class="badge badge-primary">material</span>
                         <span class="badge badge-primary">mass empty</span>
                         <span class="badge badge-primary">ext. volume</span>
-                    </p><p><span class="icon icon-info" style="color: #1a9bcb"></span>Cylinders mass and external volume include a valve of
+                    </p><p></span>Cylinders mass and external volume include a valve of
                            <%=new app.units.Unit({value: 0.7, unit: 'kg'}).format(1)%> and
                            <%=new app.units.Unit({value: 0.000087, unit: 'm^3'}).as('l').format(2)%></p>
                 </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view ">
+            <li class="table-view-cell">
+                <a class="navigate-right">
+                    New cylinder
+                </a>
+                <a class="btn btn-positive new-gear">Create</a>
             </li>
         </ul>
     </div>
@@ -50,6 +60,16 @@
             </li>
         </ul>
     </div>
+    <div class="card">
+        <ul class="table-view ">
+            <li class="table-view-cell">
+                <a class="navigate-right">
+                    New BCD
+                </a>
+                <a class="btn btn-positive new-gear">Create</a>
+            </li>
+        </ul>
+    </div>
     <% } else if (categoryId === 'REGULATOR') { %>
     <div class="card">
         <ul class="table-view gear-info">
@@ -62,6 +82,16 @@
                         <span class="badge badge-primary">volume</span>
                     </p>
                 </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view ">
+            <li class="table-view-cell">
+                <a class="navigate-right">
+                    New Regulator
+                </a>
+                <a class="btn btn-positive new-gear">Create</a>
             </li>
         </ul>
     </div>
@@ -91,6 +121,16 @@
                         <span class="badge badge-primary">volume</span>
                     </p>
                 </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view ">
+            <li class="table-view-cell">
+                <a class="navigate-right">
+                    New Misc
+                </a>
+                <a class="btn btn-positive new-gear">Create</a>
             </li>
         </ul>
     </div>
