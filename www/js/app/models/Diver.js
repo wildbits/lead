@@ -64,7 +64,7 @@ app.models.Diver = (function () {
                 case age < 56: return 35.4;
                 case age < 61: return 35.0;
                 case age < 66: return 33.3;
-                case age < 71: return 31.7;
+                case age < 72: return 31.7;
                 default      : return -1;
             }
         },
@@ -86,9 +86,9 @@ app.models.Diver = (function () {
                 case age < 41: return 28.7;
                 case age < 51: return 29.1;
                 case age < 56: return 26.5;
-                case age < 62: return 25.6;
+                case age < 61: return 25.6;
                 case age < 66: return 24.8;
-                case age < 86: return 24.3;
+                case age < 87: return 24.3;
                 default      : return -1;
             }
         }

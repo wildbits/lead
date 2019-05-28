@@ -69,7 +69,7 @@ app.views.DiverView = (function () {
                         default: 25,
                         values: (function () {
                             var values = [];
-                            for (var i = 10 ; i < 61 ; i+=1) { values.push(i); }
+                            for (var i = 10 ; i < 71 ; i+=1) { values.push(i); }
                             return values;
                         })()
                     }),
@@ -85,7 +85,7 @@ app.views.DiverView = (function () {
                         default: {value: 1.80, unit: 'm'},
                         values: (function () {
                             var values = [];
-                            for (var i = 1.20 ; i < 2.11 ; i+=0.01) { values.push({value: Number(Number(i).toFixed(2)), unit: 'm'}); }
+                            for (var i = 1.20 ; i < 2.21 ; i+=0.01) { values.push({value: Number(Number(i).toFixed(2)), unit: 'm'}); }
                             return values;
                         })()
                     }),
@@ -101,7 +101,7 @@ app.views.DiverView = (function () {
                         default: {value: 80, unit: 'kg'},
                         values: (function () {
                             var values = [];
-                            for (var i = 30 ; i < 121 ; i+=1) { values.push({value: i, unit: 'kg'}); }
+                            for (var i = 25 ; i < 181 ; i+=1) { values.push({value: i, unit: 'kg'}); }
                             return values;
                         })()
                     }),
