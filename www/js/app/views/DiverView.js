@@ -69,7 +69,7 @@ app.views.DiverView = (function () {
                         default: 25,
                         values: (function () {
                             var values = [];
-                            for (var i = 10 ; i < 61 ; i+=1) { values.push(i); }
+                            for (var i = 10 ; i < 71 ; i+=1) { values.push(i); }
                             return values;
                         })()
                     }),
