@@ -9,6 +9,7 @@
     </author>
     <icon src="img/icon.png" />
     <platform name="android">
+        <preference name="android-minSdkVersion" value="26" />
         <icon src="res/android/icon.png" />
         <icon src="res/android/ldpi.png" density="ldpi" />
         <icon src="res/android/mdpi.png" density="mdpi" />
