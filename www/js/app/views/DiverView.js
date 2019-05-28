@@ -101,7 +101,7 @@ app.views.DiverView = (function () {
                         default: {value: 80, unit: 'kg'},
                         values: (function () {
                             var values = [];
-                            for (var i = 30 ; i < 121 ; i+=1) { values.push({value: i, unit: 'kg'}); }
+                            for (var i = 25 ; i < 160 ; i+=1) { values.push({value: i, unit: 'kg'}); }
                             return values;
                         })()
                     }),
